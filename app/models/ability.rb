@@ -11,7 +11,7 @@ class Ability
         cannot :assign_admin, AdminUser, id: user.id
       else
         can :read, ActiveAdmin::Page, :name => "Dashboard"
-        can :manage, Employee
+        can :manage, Applicant
       end
 
     #

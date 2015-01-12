@@ -7,7 +7,6 @@ ActiveAdmin.register AdminUser, :as => "User" do
     column :phone_number
     column :gender
     column :birth_date
-    column :email
     column :last_sign_in_at
     column :admin
     default_actions

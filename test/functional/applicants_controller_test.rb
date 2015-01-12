@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EmployeesControllerTest < ActionController::TestCase
+class ApplicantsControllerTest < ActionController::TestCase
   setup do
     @employee = employees(:one)
   end
@@ -17,7 +17,7 @@ class EmployeesControllerTest < ActionController::TestCase
   end
 
   test "should create employee" do
-    assert_difference('Employee.count') do
+    assert_difference('Applicant.count') do
       post :create, employee: { first_name: @employee.first_name, last_name: @employee.last_name, middle_name: @employee.middle_name, nickname: @employee.nickname }
     end
 
@@ -40,7 +40,7 @@ class EmployeesControllerTest < ActionController::TestCase
   end
 
   test "should destroy employee" do
-    assert_difference('Employee.count', -1) do
+    assert_difference('Applicant.count', -1) do
       delete :destroy, id: @employee
     end
 

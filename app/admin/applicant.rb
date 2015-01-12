@@ -1,4 +1,4 @@
-ActiveAdmin.register Employee do
+ActiveAdmin.register Applicant do
   index do
     column :last_name
     column :first_name
@@ -17,8 +17,8 @@ ActiveAdmin.register Employee do
     default_actions
   end
 
-  show do |emp|
-    h3 "#{employee.last_name} #{employee.first_name}"
+  show do |applicant|
+    h3 "#{applicant.last_name} #{applicant.first_name}"
 
     attributes_table do
       row :last_name
@@ -35,7 +35,7 @@ ActiveAdmin.register Employee do
       row :area_of_expertise
       row :place_of_residence
       row :resume_file_name do
-        link_to emp.resume_file_name, emp.resume.url(:original, false)
+        link_to applicant.resume_file_name, applicant.resume.url(:original, false)
       end
     end
   end
@@ -55,7 +55,7 @@ ActiveAdmin.register Employee do
   filter :place_of_residence
 
   form html: { multipart: true } do |f|
-    f.inputs "Employee Details" do
+    f.inputs "Applicant Details" do
       f.input :last_name
       f.input :first_name
       f.input :middle_name
