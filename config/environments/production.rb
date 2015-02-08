@@ -61,6 +61,15 @@ EmployeeManager::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => ENV['swansoftwaresolutions'],
+          :access_key_id => ENV['AKIAIJBRQEXCLMT65TOA'],
+          :secret_access_key => ENV['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']
+      }
+  }
+
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5

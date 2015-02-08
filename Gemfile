@@ -11,6 +11,7 @@ gem 'inherited_resources'
 gem 'cancan'
 gem 'psych'
 gem 'paperclip'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.

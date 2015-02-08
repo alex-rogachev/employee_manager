@@ -42,6 +42,15 @@ GEM
     arbre (1.0.2)
       activesupport (>= 3.0.0)
     arel (3.0.3)
+    aws-sdk (2.0.22)
+      aws-sdk-resources (= 2.0.22)
+    aws-sdk-core (2.0.22)
+      builder (~> 3.0)
+      jmespath (~> 1.0)
+      multi_json (~> 1.0)
+      multi_xml (~> 0.5)
+    aws-sdk-resources (2.0.22)
+      aws-sdk-core (= 2.0.22)
     bcrypt (3.1.9)
     bourbon (3.2.3)
       sass (~> 3.2)
@@ -80,6 +89,8 @@ GEM
       has_scope (~> 0.6.0.rc)
       railties (>= 3.2, < 4.2)
       responders (~> 1.0)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     journey (1.0.4)
     jquery-rails (2.3.0)
       railties (>= 3.0, < 5.0)
@@ -98,6 +109,7 @@ GEM
       polyamorous (~> 0.5.0)
     mime-types (1.25.1)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
@@ -169,6 +181,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  aws-sdk
   cancan
   coffee-rails (~> 3.2.1)
   inherited_resources
