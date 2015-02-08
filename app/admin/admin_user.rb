@@ -21,8 +21,8 @@ ActiveAdmin.register AdminUser, :as => "User" do
       f.input :last_name
       f.input :email
       f.input :phone_number
-      f.input :gender
-      f.input :birth_date
+      f.input :gender, as: :select, collection: %w(Male Female), prompt: 'Please select'
+      f.input :birth_date, :as => :date_picker
       f.input :password
       f.input :password_confirmation
     end

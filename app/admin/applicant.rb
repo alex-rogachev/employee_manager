@@ -35,7 +35,7 @@ ActiveAdmin.register Applicant do
       row :area_of_expertise
       row :place_of_residence
       row :resume_file_name do
-        link_to applicant.resume_file_name, applicant.resume.url(:original, false)
+        link_to applicant.resume_file_name, applicant.resume.url(:original, false) if applicant.resume.present?
       end
     end
   end
