@@ -6,6 +6,7 @@ class Applicant < ActiveRecord::Base
                                                                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                                                                "application/msword",
                                                                "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                                                               "application/vnd.oasis.opendocument.text",
                                                                "text/plain"] }
   attr_accessible :first_name, :last_name, :middle_name, :nickname, :post, :status, :birth_date, :gender,
                   :email, :phone_number, :resume, :experience, :area_of_expertise, :place_of_residence
