@@ -1,5 +1,6 @@
 ActiveAdmin.register AdminUser, :as => "User" do
   index do
+    selectable_column
     column :first_name
     column :middle_name
     column :last_name

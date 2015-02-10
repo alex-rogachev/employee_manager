@@ -1,5 +1,6 @@
 ActiveAdmin.register Applicant do
   index do
+    selectable_column
     column :last_name
     column :first_name
     column :middle_name
