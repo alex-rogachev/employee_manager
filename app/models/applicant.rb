@@ -13,4 +13,8 @@ class Applicant < ActiveRecord::Base
                   :email, :phone_number, :resume, :experience, :area_of_expertise, :place_of_residence
   validates_presence_of :first_name, :last_name, :post, :birth_date, :gender, :email
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

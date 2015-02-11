@@ -1,4 +1,10 @@
 ActiveAdmin.register Applicant do
+  controller do
+    def edit
+      @page_title = 'Edit ' + resource.full_name
+    end
+  end
+
   index do
     selectable_column
     column :last_name
@@ -18,9 +24,7 @@ ActiveAdmin.register Applicant do
     default_actions
   end
 
-  show do |applicant|
-    h3 "#{applicant.last_name} #{applicant.first_name}"
-
+  show :title => :full_name do |applicant|
     attributes_table do
       row :last_name
       row :first_name
