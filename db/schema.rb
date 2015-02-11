@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150112095901) do
+ActiveRecord::Schema.define(:version => 20150211193834) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20150112095901) do
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
+    t.string   "skype_address"
   end
 
 end

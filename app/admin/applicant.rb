@@ -16,6 +16,7 @@ ActiveAdmin.register Applicant do
     column :birth_date
     column :gender
     column :email
+    column :skype_address
     column :phone_number
     column :experience
     column :area_of_expertise
@@ -35,6 +36,7 @@ ActiveAdmin.register Applicant do
       row :birth_date
       row :gender
       row :email
+      row :skype_address
       row :phone_number
       row :experience
       row :area_of_expertise
@@ -54,6 +56,7 @@ ActiveAdmin.register Applicant do
   filter :birth_date
   filter :gender
   filter :email
+  filter :skype_address
   filter :phone_number
   filter :experience
   filter :area_of_expertise
@@ -70,6 +73,7 @@ ActiveAdmin.register Applicant do
       f.input :birth_date, :as => :date_picker
       f.input :gender, as: :select, collection: %w(Male Female), prompt: 'Please select'
       f.input :email
+      f.input :skype_address
       f.input :phone_number
       f.input :experience
       f.input :area_of_expertise
