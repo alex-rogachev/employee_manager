@@ -12,6 +12,8 @@ gem 'cancan'
 gem 'psych'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'select2-rails'
+gem 'acts-as-taggable-on'
 
 
 # Gems used only for assets and not required
