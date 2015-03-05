@@ -71,7 +71,7 @@ ActiveAdmin.register Applicant do
       f.input :post
       f.input :status
       f.input :birth_date, :as => :date_picker
-      f.input :gender, as: :select, collection: %w(Male Female), prompt: 'Please select'
+      f.input :gender, as: :select, collection: %w(Male Female)
       f.input :email
       f.input :skype_address
       f.input :phone_number
