@@ -1,6 +1,6 @@
 class Applicant < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-
+  acts_as_taggable_on :area_of_expertise
   has_attached_file :resume
   validates_attachment :resume, content_type: { content_type: ["application/pdf","application/vnd.ms-excel",
                                                                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -10,9 +10,15 @@ class Applicant < ActiveRecord::Base
                                                                "application/vnd.oasis.opendocument.formula",
                                                                "text/plain"] }
   attr_accessible :first_name, :last_name, :middle_name, :nickname, :post, :status, :birth_date, :gender,
-                  :email, :phone_number, :resume, :experience, :area_of_expertise, :place_of_residence, :skype_address
+                  :email, :phone_number, :resume, :experience, :area_of_expertise_list, :place_of_residence, :skype_address
   validates_presence_of :first_name, :last_name, :gender
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, if: -> { email.present? }
+
+  scope :tagged_with, ->( tags ) do
+    tagged_with tags
+  end
+
+  search_methods :tagged_with
 
   def full_name
     "#{first_name} #{last_name}"
