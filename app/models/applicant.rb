@@ -14,11 +14,11 @@ class Applicant < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :gender
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, if: -> { email.present? }
 
-  scope :tagged_with, ->( tags ) do
+  scope :area_of_expertise, ->( tags ) do
     tagged_with tags
   end
 
-  search_methods :tagged_with
+  search_methods :area_of_expertise
 
   def full_name
     "#{first_name} #{last_name}"

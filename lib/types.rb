@@ -19,7 +19,7 @@ module Types
     ['QA', 'qa'],
     ['IOS', 'ios'],
     ['HTML', 'html'],
-    ['Web designer', 'wdesigner'],
+    ['Web design', 'wdesign'],
   ]
 end
 

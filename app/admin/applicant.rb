@@ -75,7 +75,7 @@ ActiveAdmin.register Applicant do
   filter :skype_address
   filter :phone_number
   filter :experience
-  filter :tagged_with, :as => :select, :collection => Types::AreaOfExpertise, multiple: true
+  filter :area_of_expertise, :as => :select, :collection => Types::AreaOfExpertise, multiple: true
   filter :place_of_residence
 
   form html: { multipart: true } do |f|
