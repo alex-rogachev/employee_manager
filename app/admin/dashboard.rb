@@ -33,7 +33,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         div :class => 'area_of_expertise_widget' do
-          panel 'Totals of applicants who have skills in:' do
+          panel 'Total of applicants who have skills in:' do
             ul do
               Types::AreaOfExpertise.each do |aoe|
                 li link_to "#{aoe.first}: #{Applicant.tagged_with(aoe.last).count}", controller: 'applicants', action: 'index', 'q' => {area_of_expertise: aoe.last}

@@ -11,19 +11,19 @@ ActiveAdmin.register Applicant do
     column :first_name
     column :middle_name
     column :nickname
-    column :post do |applicant|
+    column :post, :sortable => :post do |applicant|
       format_value applicant, :post, type: 'Post'
     end
     column :status
     column :birth_date
-    column :gender do |applicant|
+    column :gender, :sortable => :gender do |applicant|
       format_value applicant, :gender, type: 'Gender'
     end
     column :email
     column :skype_address
     column :phone_number
     column :experience
-    column :area_of_expertise do |applicant|
+    column :area_of_expertise, :sortable => :area_of_expertise do |applicant|
       format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise'
     end
     column :place_of_residence

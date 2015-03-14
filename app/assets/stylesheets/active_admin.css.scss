@@ -80,17 +80,30 @@ body.active_admin {
   width: 15%;
   font-size: 1.10em;
   font-family: Helvetica, Arial, sans-serif;
-  ul{
+  h3 {
     margin: 0;
   }
-  li {
-    list-style: none;
-    margin: 5px 0 5px 0;
-  }
-  .panel_contents{
+  .panel_contents {
     font-size: 1.30em;
-  }
-  a {
-    text-decoration: none;
+    padding: 0;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        margin: 5px 0 5px 0;
+        a {
+          padding: 5px;
+          display: block;
+          text-decoration: none;
+          color: #5E6469;
+        }
+      }
+      a:hover {
+        background-color: #5E6469;
+        color: #E3E4E5;
+        transition: 0.15s ease;
+      }
+    }
   }
 }
