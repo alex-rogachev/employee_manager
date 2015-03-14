@@ -9,7 +9,9 @@ ActiveAdmin.register AdminUser, :as => "User" do
     column :gender
     column :birth_date
     column :last_sign_in_at
-    column :admin
+    column :admin do |applicant|
+      pretty_bool applicant.admin?
+    end
     default_actions
   end                                 
 
