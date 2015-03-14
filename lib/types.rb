@@ -1,9 +1,4 @@
 module Types
-  Roles = [
-    ['Administrator', 'adm'],
-    ['Manager', 'man'],
-  ]
-
   Gender = [
     ['Male', 'm'],
     ['Female', 'f'],
@@ -19,7 +14,17 @@ module Types
     ['QA', 'qa'],
     ['IOS', 'ios'],
     ['HTML', 'html'],
-    ['Web design', 'wdesign'],
+    ['UI/UX Design', 'uiuxdesign'],
+    ['Web Design', 'webdesign'],
+  ]
+
+  Post = [
+    ['Junior', 'junior'],
+    ['Middle', 'middle'],
+    ['Senior', 'senior'],
+    ['Project Manager', 'pm'],
+    ['Scrum Master', 'scrum'],
+    ['Lead Software Engineer', 'leadsofteng'],
   ]
 end
 

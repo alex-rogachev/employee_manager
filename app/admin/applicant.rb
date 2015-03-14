@@ -11,7 +11,9 @@ ActiveAdmin.register Applicant do
     column :first_name
     column :middle_name
     column :nickname
-    column :post
+    column :post do |applicant|
+      format_value applicant, :post, type: 'Post'
+    end
     column :status
     column :birth_date
     column :gender do |applicant|
@@ -47,7 +49,7 @@ ActiveAdmin.register Applicant do
       row :first_name
       row :middle_name
       row :nickname
-      row :post
+      row_val applicant, :post, 'Post'
       row :status
       row :birth_date
       row_val applicant, :gender, 'Gender'
@@ -67,7 +69,7 @@ ActiveAdmin.register Applicant do
   filter :first_name
   filter :middle_name
   filter :nickname
-  filter :post
+  filter :post, :as => :select, :collection => Types::Post, multiple: true
   filter :status
   filter :birth_date
   filter :gender, :as => :select, :collection => Types::Gender, multiple: true
@@ -84,7 +86,7 @@ ActiveAdmin.register Applicant do
       f.input :first_name
       f.input :middle_name
       f.input :nickname
-      f.input :post
+      f.input :post, as: :select, collection: Types::Post
       f.input :status
       f.input :birth_date, :as => :date_picker
       f.input :gender, as: :select, collection: Types::Gender
