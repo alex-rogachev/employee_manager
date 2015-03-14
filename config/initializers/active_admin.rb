@@ -7,6 +7,10 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Applicant Manager"
 
+  config.namespace :admin do |admin|
+    admin.download_links = [:csv]
+  end
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

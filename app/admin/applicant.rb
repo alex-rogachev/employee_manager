@@ -5,29 +5,39 @@ ActiveAdmin.register Applicant do
     end
   end
 
+  csv do
+    column :last_name
+    column :first_name
+    column :middle_name
+    column :nickname
+    column(:post) { |applicant| format_value applicant, :post, type: 'Post' }
+    column :status
+    column :birth_date
+    column(:gender) { |applicant| format_value applicant, :gender, type: 'Gender' }
+    column :email
+    column :skype_address
+    column :phone_number
+    column :experience
+    column(:area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
+    column :place_of_residence
+  end
+
   index do
     selectable_column
     column :last_name
     column :first_name
     column :middle_name
     column :nickname
-    column :post, :sortable => :post do |applicant|
-      format_value applicant, :post, type: 'Post'
-    end
+    column(:post, :sortable => :post) { |applicant| format_value applicant, :post, type: 'Post' }
     column :status
     column :birth_date
-    column :gender, :sortable => :gender do |applicant|
-      format_value applicant, :gender, type: 'Gender'
-    end
+    column(:gender, :sortable => :gender) { |applicant| format_value applicant, :gender, type: 'Gender' }
     column :email
     column :skype_address
     column :phone_number
     column :experience
-    column :area_of_expertise, :sortable => :area_of_expertise do |applicant|
-      format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise'
-    end
+    column(:area_of_expertise, :sortable => :area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
-
     default_actions
   end
 
