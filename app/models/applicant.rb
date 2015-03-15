@@ -18,7 +18,12 @@ class Applicant < ActiveRecord::Base
     tagged_with tags
   end
 
+  scope :post, ->( post ) do
+    where(post: post)
+  end
+
   search_methods :area_of_expertise
+  search_methods :post
 
   def full_name
     "#{first_name} #{last_name}"
