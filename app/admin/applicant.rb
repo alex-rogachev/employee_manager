@@ -11,7 +11,6 @@ ActiveAdmin.register Applicant do
     column :middle_name
     column :nickname
     column(:post) { |applicant| format_value applicant, :post, type: 'Post' }
-    column :status
     column :birth_date
     column(:gender) { |applicant| format_value applicant, :gender, type: 'Gender' }
     column :email
@@ -20,6 +19,7 @@ ActiveAdmin.register Applicant do
     column :experience
     column(:area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
+    column :notes
   end
 
   index do
@@ -29,7 +29,6 @@ ActiveAdmin.register Applicant do
     column :middle_name
     column :nickname
     column(:post, :sortable => :post) { |applicant| format_value applicant, :post, type: 'Post' }
-    column :status
     column :birth_date
     column(:gender, :sortable => :gender) { |applicant| format_value applicant, :gender, type: 'Gender' }
     column :email
@@ -38,6 +37,7 @@ ActiveAdmin.register Applicant do
     column :experience
     column(:area_of_expertise, :sortable => :area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
+    column :notes
     default_actions
   end
 
@@ -60,7 +60,6 @@ ActiveAdmin.register Applicant do
       row :middle_name
       row :nickname
       row_val applicant, :post, 'Post'
-      row :status
       row :birth_date
       row_val applicant, :gender, 'Gender'
       row :email
@@ -69,6 +68,7 @@ ActiveAdmin.register Applicant do
       row :experience
       row_tags applicant, :area_of_expertise, 'AreaOfExpertise'
       row :place_of_residence
+      row :notes
       row :resume_file_name do
         link_to applicant.resume_file_name, applicant.resume.url(:original, false) if applicant.resume.present?
       end
@@ -80,7 +80,6 @@ ActiveAdmin.register Applicant do
   filter :middle_name
   filter :nickname
   filter :post, :as => :select, :collection => Types::Post, multiple: true
-  filter :status
   filter :birth_date
   filter :gender, :as => :select, :collection => Types::Gender, multiple: true
   filter :email
@@ -89,6 +88,7 @@ ActiveAdmin.register Applicant do
   filter :experience
   filter :area_of_expertise, :as => :select, :collection => Types::AreaOfExpertise, multiple: true
   filter :place_of_residence
+  filter :notes
 
   form html: { multipart: true } do |f|
     f.inputs "Applicant Details" do
@@ -97,7 +97,6 @@ ActiveAdmin.register Applicant do
       f.input :middle_name
       f.input :nickname
       f.input :post, as: :select, collection: Types::Post
-      f.input :status
       f.input :birth_date, :as => :date_picker
       f.input :gender, as: :select, collection: Types::Gender
       f.input :email
@@ -106,6 +105,7 @@ ActiveAdmin.register Applicant do
       f.input :experience
       f.input :area_of_expertise_list, as: :select, collection: Types::AreaOfExpertise, multiple: true
       f.input :place_of_residence
+      f.input :notes
       f.input :resume, :as => :file, :hint => f.object.resume_file_name
     end
     f.actions

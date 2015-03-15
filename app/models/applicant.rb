@@ -9,7 +9,7 @@ class Applicant < ActiveRecord::Base
                                                                "application/vnd.oasis.opendocument.text",
                                                                "application/vnd.oasis.opendocument.formula",
                                                                "text/plain"] }
-  attr_accessible :first_name, :last_name, :middle_name, :nickname, :post, :status, :birth_date, :gender,
+  attr_accessible :first_name, :last_name, :middle_name, :nickname, :post, :notes, :birth_date, :gender,
                   :email, :phone_number, :resume, :experience, :area_of_expertise_list, :place_of_residence, :skype_address
   validates_presence_of :first_name, :last_name, :gender
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, if: -> { email.present? }
