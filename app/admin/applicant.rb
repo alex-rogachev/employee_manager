@@ -16,7 +16,7 @@ ActiveAdmin.register Applicant do
     column :email
     column :skype_address
     column :phone_number
-    column :experience
+    column(:experience) { |applicant| number_to_human(applicant.experience) }
     column(:area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
     column :notes
@@ -34,7 +34,7 @@ ActiveAdmin.register Applicant do
     column :email
     column :skype_address
     column :phone_number
-    column :experience
+    column(:experience, :sortable => :experience) { |applicant| number_to_human(applicant.experience) }
     column(:area_of_expertise, :sortable => :area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
     column :notes
@@ -65,7 +65,7 @@ ActiveAdmin.register Applicant do
       row :email
       row :skype_address
       row :phone_number
-      row :experience
+      row(:experience) { |applicant| number_to_human(applicant.experience) }
       row_tags applicant, :area_of_expertise, 'AreaOfExpertise'
       row :place_of_residence
       row :notes
