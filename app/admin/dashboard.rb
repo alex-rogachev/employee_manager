@@ -37,12 +37,9 @@ ActiveAdmin.register_page "Dashboard" do
             ul do
               Types::AreaOfExpertise.each do |aoe|
                 li link_to "#{aoe.first}: #{Applicant.tagged_with(aoe.last).count}", controller: 'applicants', action: 'index', 'q' => {area_of_expertise: aoe.last} do
-                  post_list = Applicant.tagged_with(aoe.last).pluck(:post).uniq
-                  if !(post_list.count == 1 && post_list.first.empty?)
-                    ul do
-                      post_list.each do |post|
-                        li link_to "#{"Types::Post".constantize.rassoc(post).try(:first)}: #{Applicant.tagged_with(aoe.last).where(post: post).count}", controller: 'applicants', action: 'index', 'q' => {area_of_expertise: aoe.last, post: post} if post.present?
-                      end
+                  ul do
+                    Types::Post.each do |post|
+                      li link_to "#{"Types::Post".constantize.rassoc(post.last).try(:first)}: #{Applicant.tagged_with(aoe.last).where(post: post.last).count}", controller: 'applicants', action: 'index', 'q' => {area_of_expertise: aoe.last, post: post.last}
                     end
                   end
                 end
