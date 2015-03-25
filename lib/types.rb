@@ -16,6 +16,8 @@ module Types
     ['HTML', 'html'],
     ['UI/UX Design', 'uiuxdesign'],
     ['Web Design', 'webdesign'],
+    ['Android', 'android'],
+    ['Flash', 'flash'],
   ]
 
   Post = [
