@@ -8,7 +8,7 @@ ActiveAdmin.register Applicant do
   member_action :show_file, method: :get do
     @page_title = 'Resume of ' + resource.try(:full_name)
     applicant = Applicant.find(params[:id])
-    @link = 'https://s3.eu-central-1.amazonaws.com/swansoftwaresolutions/applicants/resumes/000/000/002/original/Muntyan_Oleg_Leonidovich.odt'
+    @link = applicant.resume.url(:original, false)
   end
 
   csv do
