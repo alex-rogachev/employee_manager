@@ -5,6 +5,12 @@ ActiveAdmin.register Applicant do
     end
   end
 
+  member_action :show_file, method: :get do
+    @page_title = 'Resume of ' + resource.try(:full_name)
+    applicant = Applicant.find(params[:id])
+    @link = applicant.resume.url(:original, false)
+  end
+
   csv do
     column :last_name
     column :first_name
@@ -69,8 +75,10 @@ ActiveAdmin.register Applicant do
       row_tags applicant, :area_of_expertise, 'AreaOfExpertise'
       row :place_of_residence
       row :notes
-      row :resume_file_name do
-        link_to applicant.resume_file_name, applicant.resume.url(:original, false) if applicant.resume.present?
+      row :resume do
+        if applicant.resume.present?
+          link_to('Show', show_file_admin_applicant_path) +' '+ link_to('Download', applicant.resume.url(:original, false))
+        end
       end
     end
   end
