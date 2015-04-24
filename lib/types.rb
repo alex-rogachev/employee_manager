@@ -15,6 +15,7 @@ module Types
     ['IOS', 'ios'],
     ['HTML', 'html'],
     ['UI/UX Design', 'uiuxdesign'],
+    ['Unity', 'unity'],
     ['Web Design', 'webdesign'],
     ['Android', 'android'],
     ['Flash', 'flash'],
