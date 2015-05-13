@@ -14,6 +14,7 @@ module Types
     ['QA', 'qa'],
     ['IOS', 'ios'],
     ['HTML', 'html'],
+    ['JavaScript', 'javascript'],
     ['UI/UX Design', 'uiuxdesign'],
     ['Unity', 'unity'],
     ['Web Design', 'webdesign'],
