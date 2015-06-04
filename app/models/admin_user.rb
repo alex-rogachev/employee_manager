@@ -13,6 +13,10 @@ class AdminUser < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :password, :password_confirmation
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def admin?
     admin
   end

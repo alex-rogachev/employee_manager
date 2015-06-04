@@ -29,5 +29,33 @@ ActiveAdmin.register AdminUser, :as => "User" do
       f.input :password_confirmation
     end
     f.actions                         
-  end                                 
+  end
+
+  show title: :full_name do |applicant|
+    def row_val instance, attribute, type
+      row attribute do
+        format_value instance, attribute, type: type
+      end
+    end
+
+    def row_tags instance, attribute, type
+      row attribute do
+        format_tags instance, attribute, type: type
+      end
+    end
+
+    attributes_table do
+      row :first_name
+      row :middle_name
+      row :last_name
+      row :email
+      row :phone_number
+      row :gender
+      row :birth_date
+      row :last_sign_in_at
+      row :admin do |applicant|
+        pretty_bool applicant.admin?
+      end
+    end
+  end
 end                                   
