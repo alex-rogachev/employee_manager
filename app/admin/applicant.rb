@@ -8,7 +8,7 @@ ActiveAdmin.register Applicant do
     applicants_with_emails.each do |applicant|
       ApplicantMailer.welcome_message(applicant).deliver
     end
-    redirect_to admin_applicants_path, notice: "Email has been sent successfully to #{applicants_with_emails.count} applicants out of #{applicants.count}."
+    redirect_to admin_applicants_path, notice: "Email has been sent successfully to #{applicants_with_emails.count} #{'applicant'.pluralize(applicants_with_emails.count)} out of #{applicants.count}."
   end
 
   controller do
