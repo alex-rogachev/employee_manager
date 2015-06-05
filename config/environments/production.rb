@@ -77,6 +77,8 @@ EmployeeManager::Application.configure do
     :enable_starttls_auto => true
   }
 
+  ActionMailer::Base.default from: 'Swan Software Solutions <no-reply@swansoftwaresolutions.com>'
+
   config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {
