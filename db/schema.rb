@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150315144731) do
+ActiveRecord::Schema.define(:version => 20150605144241) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(:version => 20150315144731) do
     t.date     "birth_date"
     t.string   "gender"
     t.string   "post"
-    t.text     "notes"
+    t.string   "status"
     t.string   "email"
     t.string   "phone_number"
-    t.float  "experience"
+    t.string   "experience"
     t.string   "area_of_expertise"
     t.string   "place_of_residence"
     t.datetime "created_at",          :null => false
@@ -74,6 +74,30 @@ ActiveRecord::Schema.define(:version => 20150315144731) do
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
     t.string   "skype_address"
+    t.string   "notes"
+  end
+
+  create_table "employees", :force => true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "nickname"
+    t.date     "birth_date"
+    t.string   "gender"
+    t.string   "post"
+    t.text     "notes"
+    t.string   "email"
+    t.string   "phone_number"
+    t.float    "experience"
+    t.string   "area_of_expertise"
+    t.string   "place_of_residence"
+    t.string   "skype_address"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
   create_table "taggings", :force => true do |t|
