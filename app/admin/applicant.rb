@@ -56,7 +56,9 @@ ActiveAdmin.register Applicant do
     column(:area_of_expertise, sortable: :area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
     column :notes
-    default_actions
+    actions defaults: false do |applicant|
+      link_to 'View', admin_applicant_path(applicant), class: 'table_links'
+    end
   end
 
   show title: :full_name do |applicant|
