@@ -1,6 +1,6 @@
 EmployeeManager::Application.configure do
 
-  Paperclip::Attachment.default_options[:s3_host_name] = 's3.eu-central-1.amazonaws.com'
+  Paperclip::Attachment.default_options[:s3_host_name] = 'https://s3.eu-central-1.amazonaws.com'
   Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
   Paperclip::Attachment.default_options[:path] = '/:class/:attachment/:id_partition/:style/:filename'
   # Settings specified here will take precedence over those in config/application.rb
@@ -32,7 +32,7 @@ EmployeeManager::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # See everything in the log (default is :info)
   # config.log_level = :debug
