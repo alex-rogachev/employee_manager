@@ -1,4 +1,12 @@
 ActiveAdmin.register Applicant do
+  batch_action :destroy, false
+  batch_action :send_welcome_message do |ids|
+    Applicant.find(ids).each do |applicant|
+      ApplicantMailer.welcome_message(applicant)
+    end
+    redirect_to admin_applicants_path, alert: 'Email has been send successfully.'
+  end
+
   controller do
     def edit
       @page_title = "Edit #{resource.try(:full_name)}"

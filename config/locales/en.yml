@@ -7,3 +7,7 @@ en:
      attributes:
        applicant:
           skype_address: 'Skype'
+  active_admin:
+      batch_actions:
+        labels:
+          send_welcome_message: "Send welcome message to"
