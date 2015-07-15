@@ -23,6 +23,12 @@ ActiveAdmin.register Applicant do
     @link = applicant.resume.url(:original, false)
   end
 
+  member_action :show_file_via_g, method: :get do
+    @page_title = "Resume of #{resource.try(:full_name)}"
+    applicant = Applicant.find(params[:id])
+    @link = applicant.resume.url(:original, false)
+  end
+
   csv do
     column :last_name
     column :first_name
@@ -91,7 +97,11 @@ ActiveAdmin.register Applicant do
       row :notes
       row :resume do
         if applicant.resume.present?
-          link_to('Show', show_file_admin_applicant_path) +' '+ link_to('Download', applicant.resume.url(:original, false))
+          if applicant.resume_content_type.in?(%w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document))
+            link_to('Show', show_file_via_g_admin_applicant_path) +' '+ link_to('Download', applicant.resume.url(:original, false))
+          else
+            link_to('Show', show_file_admin_applicant_path) +' '+ link_to('Download', applicant.resume.url(:original, false))
+          end
         end
       end
     end
