@@ -4,7 +4,7 @@ class ApplicantMailer < ActionMailer::Base
 
     mail subject: 'Glass Software Solutions',
          from: 'Natalia Ignatieva <recruiter.ignatieva@gmail.com>',
-         to: 'rogachev-alex@yandex.ru',
+         to: applicant.email,
          reply_to: 'recruiter.ignatieva@gmail.com'
   end
 end
