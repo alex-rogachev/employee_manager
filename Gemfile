@@ -5,19 +5,36 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Templates
+gem 'slim-rails'
+
+# Decorators
+gem 'draper'
+
+# Services
+gem 'interactor'
+
+# File storage
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
+
+# Exceptions interceptor
+gem 'airbrake'
+
+# Assets
+gem 'select2-rails'
+
+# Database
 gem 'pg'
+
+# ActiveAdmin
 gem 'activeadmin'
 gem 'inherited_resources'
 gem 'cancan'
 gem 'psych'
-gem 'paperclip'
-gem 'aws-sdk', '< 2.0'
-gem 'select2-rails'
-gem 'acts-as-taggable-on'
-gem 'airbrake'
-gem 'slim'
-gem 'draper'
 
+# Tagging
+gem 'acts-as-taggable-on'
 
 # Gems used only for assets and not required
 # in production environments by default.

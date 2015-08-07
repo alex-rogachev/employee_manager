@@ -3,14 +3,8 @@ ActiveAdmin.register Applicant do
 
   batch_action :destroy, false
   batch_action :send_welcome_message, confirm: 'You want to send welcome message. Click OK to continue.' do |ids|
-    applicants = Applicant.where(id: ids)
-    applicants_with_emails = applicants.where('email IS NOT NULL AND email != ?', '').
-      select('first_name, last_name, email')
-
-    applicants_with_emails.each do |applicant|
-      ApplicantMailer.welcome_message(applicant).deliver
-    end
-    redirect_to admin_applicants_path, notice: "Email has been sent successfully to #{applicants_with_emails.count} #{'applicant'.pluralize(applicants_with_emails.count)} out of #{applicants.count}."
+    result = Applicants::SendInvitation.call(ids: ids)
+    redirect_to admin_applicants_path, notice: "Email has been sent successfully to #{result.successful_recipients} #{'applicant'.pluralize(result.successful_recipients)} out of #{result.successful_recipients}."
   end
 
   controller do

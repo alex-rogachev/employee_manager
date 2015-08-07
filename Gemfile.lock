@@ -95,6 +95,7 @@ GEM
       has_scope (~> 0.6.0.rc)
       railties (>= 3.2, < 4.2)
       responders (~> 1.0)
+    interactor (3.1.0)
     journey (1.0.4)
     jquery-rails (2.3.0)
       railties (>= 3.0, < 5.0)
@@ -170,6 +171,12 @@ GEM
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
+    slim-rails (3.0.1)
+      actionmailer (>= 3.1, < 5.0)
+      actionpack (>= 3.1, < 5.0)
+      activesupport (>= 3.1, < 5.0)
+      railties (>= 3.1, < 5.0)
+      slim (~> 3.0)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -201,6 +208,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   draper
   inherited_resources
+  interactor
   paperclip
   pg
   psych
@@ -208,7 +216,7 @@ DEPENDENCIES
   rails_12factor (= 0.0.2)
   sass-rails (~> 3.2.3)
   select2-rails
-  slim
+  slim-rails
   uglifier (>= 1.0.3)
 
 BUNDLED WITH
