@@ -3,7 +3,7 @@ module Types
 
   Gender = [
     ['Male', 'm'],
-    ['Female', 'f'],
+    ['Female', 'f']
   ]
 
   AreaOfExpertise = [
@@ -21,7 +21,7 @@ module Types
     ['Unity', 'unity'],
     ['Web Design', 'webdesign'],
     ['Android', 'android'],
-    ['Flash', 'flash'],
+    ['Flash', 'flash']
   ]
 
   Post = [
@@ -30,7 +30,7 @@ module Types
     ['Senior', 'senior'],
     ['Project Manager', 'pm'],
     ['Scrum Master', 'scrum'],
-    ['Lead Software Engineer', 'leadsofteng'],
+    ['Lead Software Engineer', 'leadsofteng']
   ]
 
   AllDocuments = [
@@ -48,6 +48,10 @@ module Types
     "application/pdf",
     "application/msword",
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  ]
+
+  Email = [
+    ['Invitation', 'invitation_message']
   ]
 end
 
