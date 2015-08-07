@@ -10,4 +10,6 @@ en:
   active_admin:
       batch_actions:
         labels:
-          send_welcome_message: "Send welcome message to"
+          send_welcome_message: 'Send welcome message to'
+        confirmation:
+          send_welcome_message: 'You want to send welcome message. Click OK to continue.'

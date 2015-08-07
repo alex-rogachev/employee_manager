@@ -213,4 +213,7 @@ ActiveAdmin.setup do |config|
 
   config.authorization_adapter = ActiveAdmin::CanCanAdapter
   config.on_unauthorized_access = :access_denied
+
+  # == Constants
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 end

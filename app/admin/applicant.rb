@@ -1,4 +1,6 @@
 ActiveAdmin.register Applicant do
+  decorate_with ApplicantDecorator
+
   batch_action :destroy, false
   batch_action :send_welcome_message, confirm: 'You want to send welcome message. Click OK to continue.' do |ids|
     applicants = Applicant.where(id: ids)
@@ -13,20 +15,20 @@ ActiveAdmin.register Applicant do
 
   controller do
     def edit
-      @page_title = "Edit #{resource.try(:full_name)}"
+      @page_title = "Edit #{resource.decorate.full_name}"
     end
   end
 
   member_action :show_file, method: :get do
-    @page_title = "Resume of #{resource.try(:full_name)}"
+    @page_title = "Resume of #{resource.decorate.full_name}"
     applicant = Applicant.find(params[:id])
     @link = applicant.resume.url(:original, false)
-  end
 
-  member_action :show_file_via_g, method: :get do
-    @page_title = "Resume of #{resource.try(:full_name)}"
-    applicant = Applicant.find(params[:id])
-    @link = applicant.resume.url(:original, false)
+    if applicant.resume_content_type.in?(Types::GoogleViewerDocuments)
+      @partial = 'google_reader'
+    else
+      @partial = 'web_odf'
+    end
   end
 
   csv do
@@ -61,25 +63,12 @@ ActiveAdmin.register Applicant do
     column(:experience, sortable: :experience) { |applicant| number_to_human applicant.experience }
     column(:area_of_expertise, sortable: :area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
-    column :notes
     actions defaults: false do |applicant|
-      link_to 'View', admin_applicant_path(applicant), class: 'table_links'
+      link_to 'Show', admin_applicant_path(applicant), class: 'table_links'
     end
   end
 
   show title: :full_name do |applicant|
-    def row_val instance, attribute, type
-      row attribute do
-        format_value instance, attribute, type: type
-      end
-    end
-
-    def row_tags instance, attribute, type
-      row attribute do
-        format_tags instance, attribute, type: type
-      end
-    end
-
     attributes_table do
       row :last_name
       row :first_name
@@ -95,13 +84,14 @@ ActiveAdmin.register Applicant do
       row_tags applicant, :area_of_expertise, 'AreaOfExpertise'
       row :place_of_residence
       row :notes
-      row :resume do
+      row :show_resume do
         if applicant.resume.present?
-          if applicant.resume_content_type.in?(%w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document))
-            link_to('Show', show_file_via_g_admin_applicant_path) +' '+ link_to('Download', applicant.resume.url(:original, false))
-          else
-            link_to('Show', show_file_admin_applicant_path) +' '+ link_to('Download', applicant.resume.url(:original, false))
-          end
+          link_to('Show', show_file_admin_applicant_path)
+        end
+      end
+      row :download_resume do
+        if applicant.resume.present?
+          link_to('Download', applicant.resume.url(:original, false))
         end
       end
     end
@@ -122,7 +112,7 @@ ActiveAdmin.register Applicant do
   filter :place_of_residence
   filter :notes
 
-  form html: { multipart: true } do |f|
+  form decorate: true, html: { multipart: true } do |f|
     f.inputs 'Applicant Details' do
       f.input :last_name
       f.input :first_name

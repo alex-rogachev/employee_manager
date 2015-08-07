@@ -1,4 +1,6 @@
 module Types
+  ValidEmailRegex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
   Gender = [
     ['Male', 'm'],
     ['Female', 'f'],
@@ -29,6 +31,23 @@ module Types
     ['Project Manager', 'pm'],
     ['Scrum Master', 'scrum'],
     ['Lead Software Engineer', 'leadsofteng'],
+  ]
+
+  AllDocuments = [
+    "application/pdf",
+    "application/vnd.ms-excel",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "application/vnd.oasis.opendocument.text",
+    "application/vnd.oasis.opendocument.formula",
+    "text/plain"
+  ]
+
+  GoogleViewerDocuments = [
+    "application/pdf",
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
   ]
 end
 

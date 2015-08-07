@@ -1,16 +1,24 @@
 ActiveAdmin.register Employee do
+  decorate_with ApplicantDecorator
+
   batch_action :destroy, false
 
   controller do
     def edit
-      @page_title = "Edit #{resource.try(:full_name)}"
+      @page_title = "Edit #{resource.decorate.full_name}"
     end
   end
 
   member_action :show_file, method: :get do
-    @page_title = "Resume of #{resource.try(:full_name)}"
+    @page_title = "Resume of #{resource.decorate.full_name}"
     employee = Employee.find(params[:id])
     @link = employee.resume.url(:original, false)
+
+    if employee.resume_content_type.in?(Types::GoogleViewerDocuments)
+      @partial = 'google_reader'
+    else
+      @partial = 'web_odf'
+    end
   end
 
   csv do
@@ -45,23 +53,12 @@ ActiveAdmin.register Employee do
     column(:experience, sortable: :experience) { |employee| number_to_human employee.experience }
     column(:area_of_expertise, sortable: :area_of_expertise) { |employee| format_tags employee, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
-    column :notes
-    default_actions
+    actions defaults: false do |applicant|
+      link_to 'Show', admin_employee_path(applicant), class: 'table_links'
+    end
   end
 
   show title: :full_name do |employee|
-    def row_val instance, attribute, type
-      row attribute do
-        format_value instance, attribute, type: type
-      end
-    end
-
-    def row_tags instance, attribute, type
-      row attribute do
-        format_tags instance, attribute, type: type
-      end
-    end
-
     attributes_table do
       row :last_name
       row :first_name
@@ -77,9 +74,14 @@ ActiveAdmin.register Employee do
       row_tags employee, :area_of_expertise, 'AreaOfExpertise'
       row :place_of_residence
       row :notes
-      row :resume do
+      row :show_resume do
         if employee.resume.present?
-          link_to('Show', show_file_admin_employee_path) +' '+ link_to('Download', employee.resume.url(:original, false))
+          link_to('Show', show_file_admin_employee_path)
+        end
+      end
+      row :download_resume do
+        if employee.resume.present?
+          link_to('Download', employee.resume.url(:original, false))
         end
       end
     end
@@ -100,7 +102,7 @@ ActiveAdmin.register Employee do
   filter :place_of_residence
   filter :notes
 
-  form html: { multipart: true } do |f|
+  form decorate: true, html: { multipart: true } do |f|
     f.inputs 'Employee Details' do
       f.input :last_name
       f.input :first_name

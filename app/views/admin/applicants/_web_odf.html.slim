@@ -1,0 +1,13 @@
+html
+  head
+    = javascript_include_tag 'webodf'
+  body
+    .to_center
+      #odf
+    javascript:
+      function init() {
+        var odfelement = document.getElementById("odf"),
+                odfcanvas = new odf.OdfCanvas(odfelement);
+        odfcanvas.load("#{link}");
+      }
+      window.setTimeout(init, 0);

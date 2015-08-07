@@ -1,6 +1,4 @@
 class AdminUser < ActiveRecord::Base
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
@@ -15,9 +13,5 @@ class AdminUser < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   def full_name
     "#{first_name} #{last_name}"
-  end
-
-  def admin?
-    admin
   end
 end
