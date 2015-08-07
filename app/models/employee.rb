@@ -5,6 +5,8 @@ class Employee < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :middle_name, :nickname, :post, :notes, :birth_date, :gender, :email,
                   :phone_number, :resume, :experience, :area_of_expertise_list, :place_of_residence, :skype_address
 
+  has_many :email_sending_histories, as: :emailable
+
   validates_presence_of :first_name, :last_name, :gender
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, if: -> { email.present? }
   validates_attachment :resume, content_type: { content_type: Types::AllDocuments }

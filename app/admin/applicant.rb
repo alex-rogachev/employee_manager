@@ -3,7 +3,7 @@ ActiveAdmin.register Applicant do
 
   batch_action :destroy, false
   batch_action :send_welcome_message, confirm: 'You want to send welcome message. Click OK to continue.' do |ids|
-    result = Applicants::SendInvitation.call(ids: ids)
+    result = Applicants::SendInvitation.call(ids: ids, user_id: current_admin_user.id)
     redirect_to admin_applicants_path, notice: "Email has been sent successfully to #{result.successful_recipients} #{'applicant'.pluralize(result.successful_recipients)} out of #{result.successful_recipients}."
   end
 
@@ -57,6 +57,7 @@ ActiveAdmin.register Applicant do
     column(:experience, sortable: :experience) { |applicant| number_to_human applicant.experience }
     column(:area_of_expertise, sortable: :area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
+    column() { |applicant| image_tag('/mail.png') if applicant.email_sending_histories.present? }
     actions defaults: false do |applicant|
       link_to 'Show', admin_applicant_path(applicant), class: 'table_links'
     end

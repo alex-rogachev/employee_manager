@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  emailable_id: 1
+  emailable_type: MyString
+  sent_by: 
+
+two:
+  name: MyString
+  emailable_id: 1
+  emailable_type: MyString
+  sent_by: 
