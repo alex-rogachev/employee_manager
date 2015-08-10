@@ -47,17 +47,15 @@ ActiveAdmin.register Applicant do
     column :last_name
     column :first_name
     column :middle_name
-    column :nickname
     column(:post, sortable: :post) { |applicant| format_value applicant, :post, type: 'Post' }
     column :birth_date
-    column(:gender, sortable: :gender) { |applicant| format_value applicant, :gender, type: 'Gender' }
     column :email
     column :skype_address
     column :phone_number
     column(:experience, sortable: :experience) { |applicant| number_to_human applicant.experience }
     column(:area_of_expertise, sortable: :area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
-    column() { |applicant| image_tag('/mail.png') if applicant.email_sending_histories.present? }
+    column { |applicant| image_tag('/mail.png') if applicant.email_sending_histories.present? }
     actions defaults: false do |applicant|
       link_to 'Show', admin_applicant_path(applicant), class: 'table_links'
     end
