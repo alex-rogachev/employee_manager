@@ -1,4 +1,6 @@
 ActiveAdmin.register EmailSendingHistory do
+  breadcrumb {}
+
   index do
     selectable_column
     column(:recipient, sortable: :recipient) { |historical_record| historical_record.emailable.decorate.full_name }

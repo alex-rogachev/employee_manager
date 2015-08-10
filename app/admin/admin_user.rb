@@ -1,4 +1,6 @@
 ActiveAdmin.register AdminUser, :as => 'User' do
+  breadcrumb {}
+
   decorate_with AdminUserDecorator
 
   index do

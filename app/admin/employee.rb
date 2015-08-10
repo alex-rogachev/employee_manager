@@ -1,4 +1,6 @@
 ActiveAdmin.register Employee do
+  breadcrumb {}
+
   decorate_with ApplicantDecorator
 
   batch_action :destroy, false
