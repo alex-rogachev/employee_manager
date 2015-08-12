@@ -29,6 +29,7 @@ gem 'pg'
 
 # ActiveAdmin
 gem 'activeadmin'
+gem 'active_skin'
 gem 'inherited_resources'
 gem 'cancan'
 gem 'psych'

@@ -14,6 +14,7 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
+    active_skin (0.0.9)
     activeadmin (0.6.3)
       arbre (~> 1.0)
       bourbon (>= 1.0.0, < 4)
@@ -200,6 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_skin
   activeadmin
   acts-as-taggable-on
   airbrake
@@ -218,3 +220,6 @@ DEPENDENCIES
   select2-rails
   slim-rails
   uglifier (>= 1.0.3)
+
+BUNDLED WITH
+   1.10.6

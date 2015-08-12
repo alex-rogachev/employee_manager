@@ -6,10 +6,15 @@
 //
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
+$skinLogo: url("/swan_64x40.png") no-repeat 0 0;
+$skinActiveColor: #83A6D5;
+$skinHeaderBck: -webkit-linear-gradient(top, #4F83A9 0%, #244A66 100%);
+$panelHeaderBck: -webkit-linear-gradient(top, #4F83A9 0%, #244A66 100%);;
 
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
+@import "active_skin";
 //= require select2
 
 // Overriding any non-variable SASS must be done after the fact.
@@ -81,6 +86,8 @@ body.active_admin {
   font-size: 1.10em;
   font-family: Helvetica, Arial, sans-serif;
   h3 {
+    color: #ffffff;
+    background: -webkit-linear-gradient(top, #4F83A9 0%, #244A66 100%);
     margin: 0;
   }
   .panel_contents {
@@ -96,24 +103,23 @@ body.active_admin {
           padding: 5px;
           display: block;
           text-decoration: none;
-          color: #5E6469;
+          color: #244A66;
         }
         ul {
           position: absolute;
-          margin-left: 260px;
+          width: 208px;
+          margin-left: 258px;
           margin-top: -33px;
           display: none;
-          background-color: #F4F4F4;
+          background-color: #ffffff;
           padding: 0;
-          border-top: solid 1px #E7E8E9;
-          border-right: solid 1px #E7E8E9;
-          border-bottom: solid 1px #E7E8E9;
+          border: solid 1px #E7E8E9;
         }
       }
       li:hover {
         >a{
-          background-color: #5E6469;
-          color: #E3E4E5;
+          background-color: #83A6D5;
+          color: #ffffff;
         }
         ul {
           display: block;
@@ -121,32 +127,82 @@ body.active_admin {
         }
       }
       a:hover {
-        background-color: #5E6469;
-        color: #E3E4E5;
+        background-color: #244A66;
+        color: #83A6D5;
         transition: 0.15s ease;
       }
     }
   }
 }
 
-#odf{
-  border: 2px solid black;
+#odf {
+  border: 2px solid rgb(131, 166, 213);
 }
 
-#docx{
+#docx {
   margin: 0 auto;
-  border: 2px solid black;
+  border: 2px solid rgb(131, 166, 213);
   width: 1000px;
   height: 800px;
 }
 
-.to_center{
- text-align: center;
+.to_center {
+  text-align: center;
 }
 
 .table_links {
-  color: #5E6469 !important;
+  color: #2E2D2E !important;
   text-decoration: none !important;
   font-family: Helvetica, Arial, sans-serif;
   line-height: 150%;
 }
+
+#utility_nav {
+  background-color: inherit !important;
+}
+
+#header {
+  background: #ECF0F1;
+  #logout a {
+    text-decoration: none !important;
+  }
+  a:hover {
+    color: #ffffff;
+  }
+
+  ul.tabs {
+    > li a {
+      padding: 14px 20px;
+      margin: 0;
+    }
+    > li.current > a {
+      background-color: #4F83A9;
+    }
+  }
+}
+
+#footer {
+  display: none;
+}
+
+table.index_table {
+  td {
+    color: #2E2D2E;
+    a:hover {
+      background: none !important;
+    }
+  }
+
+  th a, th a:link, th a:visited {
+    color: #244A66;
+  }
+}
+
+.attributes_table table th, .attributes_table table td {
+  color: #111213;
+}
+
+.seperator {
+  width: 10px !important;
+}
+
