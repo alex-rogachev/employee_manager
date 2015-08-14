@@ -37,6 +37,9 @@ gem 'psych'
 # Tagging
 gem 'acts-as-taggable-on'
 
+# Form objects
+gem 'virtus'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150807121955) do
+ActiveRecord::Schema.define(:version => 20150814152925) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -86,6 +86,13 @@ ActiveRecord::Schema.define(:version => 20150807121955) do
     t.datetime "updated_at",     :null => false
   end
 
+  create_table "email_templates", :force => true do |t|
+    t.string   "name"
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "employees", :force => true do |t|
     t.string   "first_name"
     t.string   "middle_name"
@@ -107,6 +114,8 @@ ActiveRecord::Schema.define(:version => 20150807121955) do
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
+    t.float    "salary"
+    t.string   "status"
   end
 
   create_table "taggings", :force => true do |t|
