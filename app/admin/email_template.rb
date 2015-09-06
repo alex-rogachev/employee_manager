@@ -1,4 +1,6 @@
 ActiveAdmin.register EmailTemplate do
+  breadcrumb {}
+
   controller do
     before_filter :set_email_template, only: [:edit, :update]
 
