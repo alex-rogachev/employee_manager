@@ -58,6 +58,12 @@ end
 group :production do
   gem 'rails_12factor', '0.0.2'
 end
+
+group :staging, :development, :test do
+  # Mailer preview
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.2.0', :group => :development
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

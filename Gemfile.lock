@@ -42,6 +42,7 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (3.4.2)
       activerecord (>= 3.2, < 5)
+    addressable (2.3.8)
     airbrake (4.1.0)
       builder
       multi_json
@@ -115,6 +116,13 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
+    letter_opener_web (1.2.3)
+      letter_opener (~> 1.0)
+      rails (>= 3.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -232,6 +240,8 @@ DEPENDENCIES
   draper
   inherited_resources
   interactor
+  letter_opener
+  letter_opener_web (~> 1.2.0)
   paperclip
   pg
   psych
