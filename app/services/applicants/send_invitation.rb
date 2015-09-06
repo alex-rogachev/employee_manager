@@ -12,8 +12,10 @@ module Applicants
       applicants = Applicant.where(id: ids)
       applicants_with_emails = applicants.where('email IS NOT NULL AND email != ?', '')
 
+      email_template = EmailTemplate.find_by_name('invitation')
+
       applicants_with_emails.each do |applicant|
-        ApplicantMailer.welcome_message(applicant).deliver
+        ApplicantMailer.welcome_message(applicant, email_template).deliver
         applicant.email_sending_histories.create(name: 'invitation_message', sent_by: user_id)
       end
 
