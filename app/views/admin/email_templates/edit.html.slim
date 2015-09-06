@@ -1,5 +1,13 @@
-= "#{@email_template_form.name.capitalize} template"
 = simple_form_for @email_template_form, url: admin_email_template_path, method: :put do |f|
   = f.simple_fields_for :data, @email_template_form.data do |builder|
-    = render partial: @email_template.name, locals: {f: f, ff: builder}
-  = f.submit 'Submit'
+    fieldset.inputs
+      legend
+        span
+          = "#{@email_template_form.name.capitalize} template"
+      = render partial: @email_template.name, locals: {f: f, ff: builder}
+  fieldset.actions
+    ol
+      li
+        = f.submit 'Submit'
+      li.cancel
+        = link_to 'Cancel', :back
