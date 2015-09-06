@@ -1,6 +1,7 @@
 ActiveAdmin.register EmailTemplate do
   breadcrumb {}
   batch_action :destroy, false
+  actions :index
   config.filters = false
 
   controller do
