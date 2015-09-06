@@ -1,6 +1,7 @@
 class ApplicantMailer < ActionMailer::Base
-  def welcome_message applicant
+  def welcome_message applicant, email_template
     @applicant = applicant
+    @email_template = email_template
 
     mail subject: 'Glass Software Solutions',
          from: 'Natalia Ignatieva <recruiter.ignatieva@gmail.com>',
