@@ -1,4 +1,5 @@
 class Applicant < ActiveRecord::Base
+  acts_as_paranoid
   acts_as_taggable_on :area_of_expertise
   has_attached_file :resume
   

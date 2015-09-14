@@ -43,6 +43,10 @@ gem 'simple_form'
 
 # Tests
 gem 'test-unit'
+
+# Soft delete
+gem 'paranoia'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
