@@ -1,4 +1,4 @@
-ActiveAdmin.register EmailSendingHistory do
+ActiveAdmin.register EmailSendingLog do
   actions :index
   batch_action :destroy, false
   config.filters = false
@@ -22,5 +22,6 @@ ActiveAdmin.register EmailSendingHistory do
     column(:letter_type) { |historical_record| format_value historical_record, :name, type: 'Email' }
     column(:sent_by) { |historical_record| AdminUser.find(historical_record.sent_by).decorate.full_name }
     column(:sent_at) { |historical_record| historical_record.created_at.to_formatted_s(:db) }
+    column :status
   end
 end

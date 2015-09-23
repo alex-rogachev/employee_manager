@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EmailSendingHistoryTest < ActiveSupport::TestCase
+class EmailSendingLogTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

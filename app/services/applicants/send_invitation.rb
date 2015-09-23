@@ -16,7 +16,6 @@ module Applicants
 
       applicants_with_emails.each do |applicant|
         ApplicantMailer.welcome_message(applicant, email_template).deliver
-        applicant.email_sending_histories.create(name: 'invitation_message', sent_by: user_id)
       end
 
       context.successful_recipients = applicants_with_emails.count
