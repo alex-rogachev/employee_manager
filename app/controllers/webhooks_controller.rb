@@ -7,5 +7,7 @@ class WebhooksController < ApplicationController
       log_record.assign_attributes(status: event[:event], emailable_id: emailable.id, emailable_type: emailable.class.name)
       log_record.save!
     end
+    
+    render json: {}, status: 200
   end
 end
