@@ -5,7 +5,7 @@ ActiveAdmin.register Applicant do
 
   batch_action :destroy, false
   batch_action :send_welcome_message, confirm: 'You want to send welcome message. Click OK to continue.' do |ids|
-    result = Applicants::SendInvitation.call(ids: ids, user_id: current_admin_user.id)
+    result = Applicants::SendInvitation.call(ids: ids)
     redirect_to admin_applicants_path, notice: "Email has been sent successfully to #{result.successful_recipients} #{'applicant'.pluralize(result.successful_recipients)} out of #{result.all_recipients}."
   end
 

@@ -4,7 +4,6 @@ module Applicants
 
     def call
       ids = context.ids
-      user_id = context.user_id
 
       raise ArgumentError, 'IDs must be specified' if ids.empty?
       raise ArgumentError, 'User id must be specified' if user_id.nil?
