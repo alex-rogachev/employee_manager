@@ -1,4 +1,5 @@
 ActiveAdmin.register EmailSendingLog do
+  menu parent: 'Emails', :label => 'Logs'
   actions :index
   batch_action :destroy, false
   config.filters = false
