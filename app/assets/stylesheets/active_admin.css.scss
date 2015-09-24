@@ -117,7 +117,7 @@ body.active_admin {
         }
       }
       li:hover {
-        >a{
+        > a {
           background-color: #83A6D5;
           color: #ffffff;
         }
@@ -167,10 +167,14 @@ body.active_admin {
     text-decoration: none !important;
   }
   a:hover {
-    color: #ffffff;
+    background-color: #83A6D5 !important;
+    color: #ffffff !important;
   }
 
   ul.tabs {
+    > li.has_nested {
+      margin-right: -1px !important;
+    }
     > li a {
       padding: 14px 20px;
       margin: 0;
@@ -182,15 +186,15 @@ body.active_admin {
       padding: 0;
       margin-top: 12px;
     }
-    > li ul, > li > ul > li > a{
+    > li ul, > li > ul > li > a {
       background-color: #ecf0f1 !important;
       color: #111213 !important;
     }
-    > li > ul > li > a:hover{
+    > li > ul > li > a:hover {
       background-color: #83A6D5 !important;
       color: #fff !important;
     }
-    > li > ul > li.current > a{
+    > li > ul > li.current > a {
       background-color: #4F83A9 !important;
       color: #fff !important;
     }
