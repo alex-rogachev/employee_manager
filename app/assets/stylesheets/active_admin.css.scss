@@ -185,6 +185,7 @@ body.active_admin {
     > li ul {
       padding: 0;
       margin-top: 12px;
+      z-index: 1050;
     }
     > li ul, > li > ul > li > a {
       background-color: #ecf0f1 !important;
