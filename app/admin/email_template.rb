@@ -1,8 +1,10 @@
 ActiveAdmin.register EmailTemplate do
-  breadcrumb {}
-  batch_action :destroy, false
+  menu parent: 'Emails', :label => 'Templates'
   actions :index
+  batch_action :destroy, false
   config.filters = false
+
+  breadcrumb {}
 
   controller do
     before_filter :set_email_template, only: [:edit, :update, :show]
