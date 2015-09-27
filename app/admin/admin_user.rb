@@ -1,4 +1,7 @@
 ActiveAdmin.register AdminUser, :as => 'User' do
+  #Temporary disable menu link to the resource
+  menu :if => proc { false }
+
   breadcrumb {}
 
   decorate_with AdminUserDecorator
@@ -18,11 +21,11 @@ ActiveAdmin.register AdminUser, :as => 'User' do
     actions defaults: false do |admin_user|
       link_to 'Show', admin_user_path(admin_user), class: 'table_links'
     end
-  end                                 
+  end
 
-  filter :email                       
+  filter :email
 
-  form do |f|                         
+  form do |f|
     f.inputs 'Admin Details' do
       f.input :first_name
       f.input :middle_name
@@ -34,7 +37,7 @@ ActiveAdmin.register AdminUser, :as => 'User' do
       f.input :password
       f.input :password_confirmation
     end
-    f.actions                         
+    f.actions
   end
 
   show title: :full_name do |admin_user|
@@ -52,4 +55,4 @@ ActiveAdmin.register AdminUser, :as => 'User' do
       end
     end
   end
-end                                   
+end
