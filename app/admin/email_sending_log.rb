@@ -23,6 +23,20 @@ ActiveAdmin.register EmailSendingLog do
     # column(:letter_type) { |historical_record| format_value historical_record, :name, type: 'Email' }
     # column(:sent_by) { |historical_record| AdminUser.find(historical_record.sent_by).decorate.full_name }
     column(:sent_at) { |historical_record| historical_record.created_at.to_formatted_s(:db) }
-    column(:status) { |historical_record| historical_record.status.try(:capitalize) }
+    column(:status) do |historical_record|
+      img_link = case historical_record.status
+      when 'processed'
+        '/arrow-circle.png'
+      when 'dropped'
+        '/cross.png'
+      when 'deffered'
+        '/exclamation.png'
+      when 'delivered'
+        '/tick.png'
+      when 'bounced'
+        '/cross.png'
+      end
+      image_tag img_link, title: historical_record.status.capitalize if historical_record.status.present?
+    end
   end
 end
