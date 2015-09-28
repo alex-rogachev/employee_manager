@@ -186,9 +186,10 @@ body.active_admin {
       padding: 0;
       margin-top: 12px;
       z-index: 1050;
+      border: 1px solid #d3d8dc !important;
     }
     > li ul, > li > ul > li > a {
-      background-color: #ecf0f1 !important;
+      background-color: #fff !important;
       color: #111213 !important;
     }
     > li > ul > li > a:hover {
