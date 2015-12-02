@@ -1,9 +1,12 @@
 //= require active_admin/base
 //= require select2
+//= require bootstrap
 
 $(function(){
   $("select").select2({placeholder: 'Please select'});
 
   if(<%= !Rails.env.production? %>)
     $("#title_bar").after("<div id='dev_label'>You are on <%= Rails.env %> environment.</div>");
+
+  $('<div id="modal-window" class="modal modal-sm fade" role="dialog" aria-labelledby="modal-label" aria-hidden="true"></div>').appendTo('body');
 });
