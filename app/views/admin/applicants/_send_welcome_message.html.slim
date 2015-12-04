@@ -1,0 +1,23 @@
+.modal-dialog role="document"
+  .modal-content
+    .modal-header
+      button.close aria-label="Close" data-dismiss="modal" type="button"
+        span aria-hidden="true"  &times;
+      h2#myModalLabel.modal-title Job invitation letter
+    .modal-body
+      .container
+        table.table.table-hover#applicants
+          thead
+            tr
+              th First name
+              th Last name
+          tbody
+            - @applicants.each do |applicant|
+              tr
+                td
+                  = applicant.first_name
+                td
+                  = applicant.last_name
+    .modal-footer
+      button.btn.btn-default.pull-left data-dismiss="modal" type="button" Close
+      button.btn.btn-primary.pull-right type="button" Send invitation letter

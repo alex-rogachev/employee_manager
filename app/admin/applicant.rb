@@ -9,6 +9,10 @@ ActiveAdmin.register Applicant do
     redirect_to admin_applicants_path, notice: "Email has been sent successfully to #{result.successful_recipients} #{'applicant'.pluralize(result.successful_recipients)} out of #{result.all_recipients}."
   end
 
+  action_item do
+    link_to_function "Send invitation letter", "batchAction();", data: { toggle: "modal", target: "#modal-window" }
+  end
+
   controller do
     def scoped_collection
       Applicant.includes :email_sending_logs
@@ -30,6 +34,14 @@ ActiveAdmin.register Applicant do
     else
       @partial = 'web_odf'
     end
+  end
+
+  collection_action :send_welcome_message_dialog, :method => :get do
+    @applicants = Applicant.find(params[:objects_ids])
+  end
+
+  collection_action :send_welcome_message, :method => :post do
+
   end
 
   csv do

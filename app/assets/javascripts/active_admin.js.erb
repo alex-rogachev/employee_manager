@@ -10,3 +10,17 @@ $(function(){
 
   $('<div id="modal-window" class="modal modal-sm fade" role="dialog" aria-labelledby="modal-label" aria-hidden="true"></div>').appendTo('body');
 });
+
+function batchAction(){
+  var object_ids = [];
+
+  $('.collection_selection:checked').each(function(){
+    object_ids.push($(this).val());
+  });
+
+  $.ajax({
+    type: 'GET',
+    url: '/admin/applicants/send_welcome_message_dialog',
+    data: {objects_ids: object_ids}
+  });
+}
