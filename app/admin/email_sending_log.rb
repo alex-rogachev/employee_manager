@@ -1,8 +1,9 @@
 ActiveAdmin.register EmailSendingLog do
   menu parent: 'Emails', :label => 'Logs'
+
   actions :index
+
   batch_action :destroy, false
-  config.filters = false
 
   index do
     # TODO: change this workaround
@@ -18,7 +19,7 @@ ActiveAdmin.register EmailSendingLog do
     end
     column(:recipient_type) { |historical_record| historical_record.emailable_type }
     column(:recipient_email_address) { |historical_record| emailable(historical_record).email }
-    # column(:letter_type) { |historical_record| format_value historical_record, :name, type: 'Email' }
+    column(:letter_type) { |historical_record| format_value historical_record, :name, type: 'Email' }
     # column(:sent_by) { |historical_record| AdminUser.find(historical_record.sent_by).decorate.full_name }
     column(:sent_at) { |historical_record| historical_record.created_at.to_formatted_s(:db) }
     column(:status) do |historical_record|
