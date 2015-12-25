@@ -2,8 +2,6 @@ ActiveAdmin.register AdminUser, :as => 'User' do
   #Temporary disable menu link to the resource
   menu :if => proc { false }
 
-  breadcrumb {}
-
   decorate_with AdminUserDecorator
 
   index do

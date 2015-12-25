@@ -1,5 +1,4 @@
 ActiveAdmin.register Applicant do
-  breadcrumb {}
 
   decorate_with ApplicantDecorator
 

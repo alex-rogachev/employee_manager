@@ -3,7 +3,4 @@
 
 $(function(){
   $("select").select2({placeholder: 'Please select'});
-
-  if(<%= !Rails.env.production? %>)
-    $("#title_bar").after("<div id='dev_label'>You are on <%= Rails.env %> environment.</div>");
 });

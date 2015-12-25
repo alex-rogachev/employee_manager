@@ -235,10 +235,6 @@ table.index_table {
   padding: 10px 0 0 10px;
 }
 
-#dev_label {
-  color: white;
-  background-color: cadetblue;
-  text-align: center;
-  font-size: 28px;
-  padding: 10px;
+.breadcrumb > a {
+  color: white !important;
 }

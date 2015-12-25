@@ -1,10 +1,11 @@
-= simple_form_for @email_template_form, url: admin_email_template_path, method: :put do |f|
-  = f.simple_fields_for :data, @email_template_form.data do |builder|
+= semantic_form_for @email_template_form, url: admin_email_template_path, method: :put do |f|
+  = f.semantic_fields_for :data, @email_template_form.data do |builder|
     fieldset.inputs
       legend
         span
           = "#{@email_template_form.name.capitalize} template"
-      = render partial: @email_template.name, locals: {f: f, ff: builder}
+      ol
+        = render partial: @email_template.name, locals: {f: f, ff: builder}
   fieldset.actions
     ol
       li

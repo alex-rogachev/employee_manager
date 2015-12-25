@@ -4,8 +4,6 @@ ActiveAdmin.register EmailSendingLog do
   batch_action :destroy, false
   config.filters = false
 
-  breadcrumb {}
-
   index do
     # TODO: change this workaround
     def emailable(historical_record)
