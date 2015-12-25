@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  address: MyString
+  emailable_id: 1
+  emailable_type: MyString
+
+two:
+  address: MyString
+  emailable_id: 1
+  emailable_type: MyString

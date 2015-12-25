@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151225144959) do
+ActiveRecord::Schema.define(:version => 20151225152800) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -79,6 +79,14 @@ ActiveRecord::Schema.define(:version => 20151225144959) do
   end
 
   add_index "applicants", ["deleted_at"], :name => "index_applicants_on_deleted_at"
+
+  create_table "email_addresses", :force => true do |t|
+    t.string   "address"
+    t.integer  "emailable_id"
+    t.string   "emailable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "email_sending_logs", :force => true do |t|
     t.string   "name"
