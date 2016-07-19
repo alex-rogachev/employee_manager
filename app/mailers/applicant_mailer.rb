@@ -1,7 +1,9 @@
 class ApplicantMailer < ActionMailer::Base
-  def welcome_message applicant, email_template
+  def welcome_message applicant, email_template, message_token
     @applicant = applicant
     @email_template = email_template
+
+    headers['Message-ID'] = message_token
 
     mail subject: 'Glass Software Solutions',
          from: 'Natalia Ignatieva <recruiter.ignatieva@gmail.com>',

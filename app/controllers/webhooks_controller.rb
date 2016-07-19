@@ -1,13 +1,11 @@
 class WebhooksController < ApplicationController
+
   def sendgrid_event
-    events = params[:_json]
-    events.each do |event|
-      emailable = Applicant.find_by_email(event[:email])
-      log_record = EmailSendingLog.find_or_initialize_by_sg_id(event[:sg_message_id])
-      log_record.assign_attributes(status: event[:event], emailable_id: emailable.id, emailable_type: emailable.class.name)
-      log_record.save!
+    params[:_json].each do |event|
+      log_record = EmailSendingLog.find(event['smtp-id'])
+      log_record.update_attribute(:status, event[:event]) unless log_record.status.in? %w(delivered failed bounced)
     end
 
-    render json: {}, status: 200
+    render nothing: true
   end
 end

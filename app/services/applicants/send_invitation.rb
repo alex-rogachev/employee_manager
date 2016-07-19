@@ -13,7 +13,10 @@ module Applicants
       email_template = EmailTemplate.find_by_name('invitation')
 
       applicants_with_emails.each do |applicant|
-        ApplicantMailer.welcome_message(applicant, email_template).deliver
+        log = EmailSendingLog.create(status: 'queued', emailable: applicant)
+        message_token = log.id.to_s
+
+        ApplicantMailer.welcome_message(applicant, email_template, message_token).deliver
       end
 
       context.successful_recipients = applicants_with_emails.count
