@@ -18,11 +18,12 @@ gem 'interactor'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 
-# Exceptions interceptor
+# Exceptions
 gem 'airbrake'
 
 # Assets
 gem 'select2-rails'
+gem 'font-awesome-rails'
 
 # Database
 gem 'pg'
