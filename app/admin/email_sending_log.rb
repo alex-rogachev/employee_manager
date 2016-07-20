@@ -36,7 +36,7 @@ ActiveAdmin.register EmailSendingLog do
           {'exclamation' => '#BEBE7F'}
         when 'delivered'
           {'check' => 'green'}
-        when 'bounced'
+        when 'bounce'
           {'ban' => 'red'}
         end
       fa_icon(icon_with_color.keys.first, style: "color: #{icon_with_color.values.first}; font-size: 23px;")
