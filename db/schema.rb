@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150923124744) do
+ActiveRecord::Schema.define(:version => 20160720121222) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -85,11 +85,14 @@ ActiveRecord::Schema.define(:version => 20150923124744) do
     t.integer  "sent_by"
     t.integer  "emailable_id"
     t.string   "emailable_type"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "status"
     t.string   "sg_id"
+    t.string   "emailable_address"
   end
+
+  add_index "email_sending_logs", ["emailable_address"], :name => "index_email_sending_logs_on_emailable_address"
 
   create_table "email_templates", :force => true do |t|
     t.string   "name"
