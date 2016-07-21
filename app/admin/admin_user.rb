@@ -1,6 +1,6 @@
-ActiveAdmin.register AdminUser, :as => 'User' do
+ActiveAdmin.register AdminUser, as: 'User' do
   #Temporary disable menu link to the resource
-  menu :if => proc { false }
+  menu if: proc { false }
 
   breadcrumb {}
 
