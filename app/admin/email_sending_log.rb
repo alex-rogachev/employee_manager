@@ -11,6 +11,7 @@ ActiveAdmin.register EmailSendingLog do
   scope :queued
   scope :processed
   scope :delivered
+  scope :deferred
   scope :failed
 
   index do
