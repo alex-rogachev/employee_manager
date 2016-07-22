@@ -14,12 +14,6 @@ ActiveAdmin.register EmailSendingLog, as: 'Email Logs' do
   scope :deferred
   scope :failed
 
-  controller do
-    def scoped_collection
-      EmailSendingLog.includes :emailable
-    end
-  end
-
   index do
     column(:recipient) do |historical_record|
       if historical_record.unscoped_emailable.deleted?
