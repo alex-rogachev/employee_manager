@@ -10,6 +10,11 @@ ActiveAdmin.register Applicant do
   end
 
   controller do
+    def scoped_collection
+      Applicant.includes :email_sending_logs
+    end
+
+
     def edit
       @page_title = "Edit #{resource.decorate.full_name}"
     end
