@@ -59,7 +59,11 @@ ActiveAdmin.register Applicant do
     column :place_of_residence
     column('Invitation Sent At') do |applicant|
       if applicant.email_sending_logs.present?
-        fa_icon(:envelope, text: "#{time_ago_in_words(applicant.email_sending_logs.last.created_at)} ago", style: 'font-size: 23px;')
+        "<div style='text-align: center;'>
+          #{fa_icon(:envelope, style: 'font-size: 23px;')}
+          <br>
+          #{time_ago_in_words(applicant.email_sending_logs.last.created_at)} ago
+        </div>".html_safe
       end
     end
     actions defaults: false do |applicant|
