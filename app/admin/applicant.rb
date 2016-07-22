@@ -62,7 +62,7 @@ ActiveAdmin.register Applicant do
     column(:experience, sortable: :experience) { |applicant| number_to_human applicant.experience }
     column(:area_of_expertise, sortable: :area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
-    column('Invitation Sent At') do |applicant|
+    column('Invitation Sent At', sortable: 'email_sending_logs.created_at') do |applicant|
       if applicant.email_sending_logs.present?
         "<div style='text-align: center;'>
           #{fa_icon(:envelope, style: 'font-size: 23px;')}
