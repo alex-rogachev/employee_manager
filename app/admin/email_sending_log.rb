@@ -1,4 +1,4 @@
-ActiveAdmin.register EmailSendingLog do
+ActiveAdmin.register EmailSendingLog, as: 'Email Logs' do
   menu parent: 'Emails', label: 'Logs'
   actions :index
   batch_action :destroy, false
@@ -19,16 +19,15 @@ ActiveAdmin.register EmailSendingLog do
       if historical_record.unscoped_emailable.deleted?
         historical_record.emailable_name
       else
-        link_to historical_record.emailable_name, polymorphic_path([:admin, historical_record.emailable])
+        link_to historical_record.emailable_name, polymorphic_path([:admin, historical_record.emailable]), class: 'table_links'
       end
     end
-    column(:recipient_type) { |historical_record| historical_record.emailable_type }
+    # column(:recipient_type) { |historical_record| historical_record.emailable_type }
     column(:recipient_email_address) { |historical_record| historical_record.emailable_address }
     column(:sent_at) { |historical_record| historical_record.created_at.to_formatted_s(:db) }
     column(:status) { |historical_record| historical_record.status_as_icon }
   end
 
   filter :created_at, label: 'Sent at'
-  filter :emailable_type
-  filter :emailable_address
+  filter :emailable_address, label: 'Recipient email address'
 end

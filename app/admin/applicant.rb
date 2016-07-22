@@ -57,7 +57,11 @@ ActiveAdmin.register Applicant do
     column(:experience, sortable: :experience) { |applicant| number_to_human applicant.experience }
     column(:area_of_expertise, sortable: :area_of_expertise) { |applicant| format_tags applicant, :area_of_expertise, type: 'AreaOfExpertise' }
     column :place_of_residence
-    column { |applicant| image_tag('/mail.png') if applicant.email_sending_logs.present? }
+    column('Invitation Sent At') do |applicant|
+      if applicant.email_sending_logs.present?
+        fa_icon(:envelope, text: "#{time_ago_in_words(applicant.email_sending_logs.last.created_at)} ago", style: 'font-size: 23px;')
+      end
+    end
     actions defaults: false do |applicant|
       link_to 'Show', admin_applicant_path(applicant), class: 'table_links'
     end
