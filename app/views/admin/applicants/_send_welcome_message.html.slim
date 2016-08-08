@@ -3,21 +3,18 @@
     .modal-header
       button.close aria-label="Close" data-dismiss="modal" type="button"
         span aria-hidden="true"  &times;
-      h2#myModalLabel.modal-title Job invitation letter
+      h3#myModalLabel.modal-title
+       |Job invitation letter
     .modal-body
       .container
-        table.table.table-hover#applicants
-          thead
-            tr
-              th First name
-              th Last name
-          tbody
-            - @applicants.each do |applicant|
-              tr
-                td
-                  = applicant.first_name
-                td
-                  = applicant.last_name
+        = render 'recipients_table'
+        .panel.panel-default
+          .panel-heading
+            h1.panel-title
+              = link_to 'Show email content <span class="caret"></span>'.html_safe, '#mail_content', data: { toggle: "collapse"}, :'aria-controls' => "mail_content", :'aria-expanded' => "false", role: "button"
+          #mail_content.panel-collapse.collapse
+            .panel-body
+              = render 'applicant_mailer/invitation'
     .modal-footer
-      button.btn.btn-default.pull-left data-dismiss="modal" type="button" Close
-      button.btn.btn-primary.pull-right type="button" Send invitation letter
+      = link_to 'Cancel', '#', data: { type: "button", dismiss: "modal" }, class: 'button pull-left'
+      = link_to_function 'Send welcome message', 'sendMessage();', class: 'button pull-right'

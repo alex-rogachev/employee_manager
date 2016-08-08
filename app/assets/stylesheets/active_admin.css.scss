@@ -296,3 +296,64 @@ table.index_table {
 .container {
   width: inherit;
 }
+
+.table_with_borders {
+  border-color: rgb(227, 227, 227);
+  border-style: solid;
+  border-width: 1px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  tr{
+   height: 28px;
+  }
+  th {
+    padding: 10px 0 10px 15px;
+    color: black;
+    font-weight: normal !important;
+  }
+
+  td {
+    padding: 10px 0 10px 15px;
+    border-top: 1px solid #e3e3e3;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+  }
+}
+
+.panel {
+  a, a:link, a:visited {
+    color: black;
+    text-decoration: none;
+  }
+  .panel-heading {
+    padding: 10px 15px;
+    background-color: #c3d9ff;
+  }
+  .panel-body {
+    padding: 10px 0;
+  }
+}
+.button-small {
+  padding: 4px 10px !important;
+}
+
+.button.button-small.red {
+  background-color: #C84848 !important;
+}
+.button.button-small.white {
+  background-color: #ffffff !important;
+  color: black;
+}
+
+.button.button-small.red:hover{
+  background-color: #c87a75 !important;
+}
+
+.button.button-small.white:hover{
+  background-color: #F2F1F1 !important;
+  color: black;
+}

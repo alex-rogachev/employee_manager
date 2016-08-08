@@ -3,12 +3,6 @@ ActiveAdmin.register Applicant do
 
   decorate_with ApplicantDecorator
 
-  batch_action :destroy, false
-  batch_action :send_welcome_message, confirm: 'You want to send welcome message. Click OK to continue.' do |ids|
-    result = Applicants::SendInvitation.call(ids: ids)
-    redirect_to admin_applicants_path, notice: "Email has been sent successfully to #{result.successful_recipients} #{'applicant'.pluralize(result.successful_recipients)} out of #{result.all_recipients}."
-  end
-
   action_item do
     link_to_function "Send invitation letter", "batchAction();", data: { toggle: "modal", target: "#modal-window" }
   end
@@ -38,10 +32,11 @@ ActiveAdmin.register Applicant do
 
   collection_action :send_welcome_message_dialog, :method => :get do
     @applicants = Applicant.find(params[:objects_ids])
+    @email_template = EmailTemplate.find_by_name('invitation')
   end
 
   collection_action :send_welcome_message, :method => :post do
-
+    result = Applicants::SendInvitation.call(ids: ids)
   end
 
   csv do
@@ -88,7 +83,7 @@ ActiveAdmin.register Applicant do
     end
   end
 
-  show title: :full_name do |applicant|
+  show(title: :full_name) do |applicant|
     attributes_table do
       row :last_name
       row :first_name

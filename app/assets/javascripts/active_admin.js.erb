@@ -9,6 +9,7 @@ $(function(){
     $("#title_bar").after("<div id='dev_label'>You are on <%= Rails.env %> environment.</div>");
 
   $('<div id="modal-window" class="modal modal-sm fade" role="dialog" aria-labelledby="modal-label" aria-hidden="true"></div>').appendTo('body');
+  $('.index.admin_applicants').find('#batch_actions_selector').remove();
 });
 
 function batchAction(){
@@ -24,3 +25,27 @@ function batchAction(){
     data: {objects_ids: object_ids}
   });
 }
+
+function removeRow(element){
+  var table_row = element.closest($('tr'));
+  table_row.animate({backgroundColor: 'rgb(255, 195, 195);'}, 300);
+  table_row.addClass('delete');
+  element.replaceWith("<a class='button button-small white' href='#' onclick='recoverRow($(this)); return false;'>Recover</a>");
+}
+
+function sendMessage(){
+  var recipients_ids = [];
+  $('.table_with_borders#recipients_table tr').not('.delete').find('td.object_id').each(function(){
+    recipients_ids.push($(this).text());
+  });
+  alert(recipients_ids);
+}
+
+function recoverRow(element){
+  var table_row = element.closest($('tr'));
+  table_row.animate({backgroundColor: 'rgb(255, 255, 255);'}, 300);
+  table_row.removeClass('delete');
+  element.replaceWith("<a class='button button-small red' href='#' onclick='removeRow($(this)); return false;'>Remove</a>");
+}
+
+
