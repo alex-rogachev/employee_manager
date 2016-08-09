@@ -53,6 +53,13 @@ module Types
   Email = [
     ['Invitation', 'invitation_message']
   ]
+
+  Levels = [
+    ['EL 1', 'el1'],
+    ['EL 2', 'el2'],
+    ['EL 3', 'el3'],
+    ['EL 4', 'el4'],
+  ]
 end
 
 ActiveRecord::Base.extend Types

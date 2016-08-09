@@ -6,7 +6,7 @@ ActiveAdmin.register_page "Dashboard" do
   content title: proc{ I18n.t("active_admin.dashboard") } do
     columns do
       column do
-        div :class => 'area_of_expertise_widget' do
+        div class: 'area_of_expertise_widget' do
           panel 'Total of applicants who have skills in:' do
             ul do
               Types::AreaOfExpertise.each do |aoe|

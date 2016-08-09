@@ -1,6 +1,8 @@
 ActiveAdmin.register Applicant do
   breadcrumb {}
 
+  menu priority: 2
+
   decorate_with ApplicantDecorator
 
   batch_action :destroy, false

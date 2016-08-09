@@ -242,3 +242,7 @@ table.index_table {
   font-size: 28px;
   padding: 10px;
 }
+
+table.index_table tr.selected td {
+  background: #87bdcd;
+}

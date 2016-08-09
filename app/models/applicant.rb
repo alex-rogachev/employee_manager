@@ -7,6 +7,7 @@ class Applicant < ActiveRecord::Base
                   :phone_number, :resume, :experience, :area_of_expertise_list, :place_of_residence, :skype_address
 
   has_many :email_sending_logs, as: :emailable
+  has_and_belongs_to_many :vacancies
 
   validates_presence_of :first_name, :last_name, :gender
   validates :email, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false, scope: :deleted_at},

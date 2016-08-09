@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160720121222) do
+ActiveRecord::Schema.define(:version => 20160808152459) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -80,6 +80,13 @@ ActiveRecord::Schema.define(:version => 20160720121222) do
 
   add_index "applicants", ["deleted_at"], :name => "index_applicants_on_deleted_at"
 
+  create_table "applicants_vacancies", :force => true do |t|
+    t.integer  "applicant_id"
+    t.integer  "vacancy_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "email_sending_logs", :force => true do |t|
     t.string   "name"
     t.integer  "sent_by"
@@ -145,5 +152,13 @@ ActiveRecord::Schema.define(:version => 20160720121222) do
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
+  create_table "vacancies", :force => true do |t|
+    t.string   "description"
+    t.string   "level"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "technology"
+  end
 
 end
