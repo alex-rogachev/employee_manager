@@ -1,0 +1,6 @@
+ul
+  - Vacancy.all.each do |vacancy|
+    li
+      = link_to assign_applicant_dialog_admin_vacancy_path(vacancy), data: { toggle: "modal", target: "#modal-window", remote: true } do
+        = vacancy.decorate.title
+        span.badge.pull-right = vacancy.applicants.count

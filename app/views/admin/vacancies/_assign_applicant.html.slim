@@ -1,0 +1,26 @@
+.modal-dialog role="document"
+  .modal-content
+    .modal-header
+      button.close aria-label="Close" data-dismiss="modal" type="button"
+        span aria-hidden="true"  &times;
+      h3#myModalLabel.modal-title
+        b
+          ' Candidates to vacancy
+          ' #{@vacancy.decorate.title}
+    .modal-body
+      .container
+        .row
+          .modal_table
+            .panel.panel-default
+              table.table#candidatesTable data-vacancy="#{@vacancy.id}"
+                tbody
+                  - @vacancy.applicants.each do |applicant|
+                    = render 'table_row', applicant: applicant
+              .panel-footer
+                = select_tag :applicants, options_from_collection_for_select(@applicants, "id", 'full_name', params[:per_page].to_i), id: 'applicants_select'
+                = link_to '#', onclick: 'addApplicant($(this));', class: 'btn btn-primary btn-xs pull-right', id: 'new_item'
+                  i.fa.fa-plus>
+                  | Add
+
+    .modal-footer
+      = link_to 'Close', '#', data: { type: "button", dismiss: "modal" }, class: 'btn btn-default pull-right'

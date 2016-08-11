@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160808152459) do
+ActiveRecord::Schema.define(:version => 20160811145651) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(:version => 20160808152459) do
     t.date     "birth_date"
     t.string   "gender"
     t.string   "post"
-    t.string   "status"
+    t.text     "notes"
     t.string   "email"
     t.string   "phone_number"
-    t.string   "experience"
+    t.float    "experience"
     t.string   "area_of_expertise"
     t.string   "place_of_residence"
     t.datetime "created_at",          :null => false
@@ -74,18 +74,17 @@ ActiveRecord::Schema.define(:version => 20160808152459) do
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
     t.string   "skype_address"
-    t.string   "notes"
     t.datetime "deleted_at"
   end
 
   add_index "applicants", ["deleted_at"], :name => "index_applicants_on_deleted_at"
 
-  create_table "applicants_vacancies", :force => true do |t|
-    t.integer  "applicant_id"
-    t.integer  "vacancy_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+  create_table "applicants_vacancies", :id => false, :force => true do |t|
+    t.integer "applicant_id"
+    t.integer "vacancy_id"
   end
+
+  add_index "applicants_vacancies", ["applicant_id", "vacancy_id"], :name => "by_applicant_and_vacancy", :unique => true
 
   create_table "email_sending_logs", :force => true do |t|
     t.string   "name"
@@ -129,8 +128,6 @@ ActiveRecord::Schema.define(:version => 20160808152459) do
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
-    t.float    "salary"
-    t.string   "status"
   end
 
   create_table "taggings", :force => true do |t|

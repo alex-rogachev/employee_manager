@@ -21,7 +21,7 @@ $panelHeaderBck: -webkit-linear-gradient(top, #4F83A9 0%, #244A66 100%);;
 @import "bootstrap/print";
 
 // Core CSS
-@import "bootstrap/scaffolding";
+//@import "bootstrap/scaffolding";
 @import "bootstrap/type";
 @import "bootstrap/code";
 @import "bootstrap/grid";
@@ -40,10 +40,10 @@ $panelHeaderBck: -webkit-linear-gradient(top, #4F83A9 0%, #244A66 100%);;
 @import "bootstrap/breadcrumbs";
 @import "bootstrap/pagination";
 @import "bootstrap/pager";
-@import "bootstrap/labels";
+//@import "bootstrap/labels";
 @import "bootstrap/badges";
 @import "bootstrap/jumbotron";
-@import "bootstrap/thumbnails";
+//@import "bootstrap/thumbnails";
 @import "bootstrap/alerts";
 @import "bootstrap/progress-bars";
 @import "bootstrap/media";
@@ -133,9 +133,15 @@ body.active_admin {
 }
 
 .area_of_expertise_widget {
-  width: 260px;
+  width: 265px;
   font-size: 1.10em;
   font-family: Helvetica, Arial, sans-serif;
+  a {
+    padding: 5px;
+    display: block;
+    text-decoration: none;
+    color: #244A66;
+  }
   h3 {
     color: #ffffff;
     background: -webkit-linear-gradient(top, #4F83A9 0%, #244A66 100%);
@@ -150,16 +156,11 @@ body.active_admin {
       li {
         list-style: none;
         margin: 5px 0 5px 0;
-        a {
-          padding: 5px;
-          display: block;
-          text-decoration: none;
-          color: #244A66;
-        }
         ul {
+          z-index: 9999;
           position: absolute;
-          width: 208px;
-          margin-left: 258px;
+          width: 220px;
+          margin-left: 263px;
           margin-top: -33px;
           display: none;
           background-color: #ffffff;
@@ -183,6 +184,10 @@ body.active_admin {
         transition: 0.15s ease;
       }
     }
+  }
+
+  span.badge {
+    background-color: #244A66;
   }
 }
 
@@ -295,4 +300,124 @@ table.index_table {
 
 table.index_table tr.selected td {
   background: #87bdcd;
+}
+
+.container {
+  width: inherit;
+}
+
+a.btn-danger, a.btn-danger:link, a.btn-danger:visited {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  text-decoration: none;
+}
+
+a.btn-warning, a.btn-warning:link, a.btn-warning:visited {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  text-decoration: none;
+}
+
+a.btn-info, a.btn-info:link, a.btn-info:visited {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  text-decoration: none;
+}
+
+a.btn-success, a.btn-success:link, a.btn-success:visited {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  text-decoration: none;
+}
+
+a.btn-primary, a.btn-primary:link, a.btn-primary:visited {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  text-decoration: none;
+}
+
+a.btn-default, a.btn-default:link, a.btn-default:visited {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  text-decoration: none;
+}
+
+a.btn-default:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+a.btn-primary:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+a.btn-success:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+}
+
+a.btn-info:hover {
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+
+a.btn-warning:hover {
+  color: #fff;
+  background-color: #ec971f;
+  border-color: #d58512;
+}
+
+a.btn-danger:hover {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+.modal_table {
+  tr {
+    width: 100%;
+    display: inline-table;
+  }
+
+  table {
+    height: 300px;
+  }
+  tbody {
+    overflow-y: scroll;
+    max-height: 300px;
+    width: 100%;
+    position: absolute;
+  }
+
+  .section > div, .panel > div {
+    padding: 10px 24px 10px 5px;
+  }
+
+  table tr:nth-child(1) {
+    td {
+      border-top: none;
+    }
+  }
+}
+
+.columns > .column {
+  width: initial !important;
+}
+
+.modal-header {
+  .modal-title {
+    color: #ffffff;
+  }
+  background: -webkit-linear-gradient(top, #4F83A9 0%, #244A66 100%);
 }

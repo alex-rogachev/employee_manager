@@ -1,0 +1,9 @@
+tr
+  td.object_id style="display:none;"
+    = applicant.id
+  td
+    = applicant.decorate.full_name
+  td
+    = link_to '#', onclick: 'removeApplicant($(this));', class: 'btn btn-danger btn-xs pull-right'
+      i.fa.fa-minus>
+      | Remove

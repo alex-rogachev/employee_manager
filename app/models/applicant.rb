@@ -24,4 +24,8 @@ class Applicant < ActiveRecord::Base
 
   search_methods :area_of_expertise
   search_methods :post
+
+  def full_name
+    decorate.full_name
+  end
 end
