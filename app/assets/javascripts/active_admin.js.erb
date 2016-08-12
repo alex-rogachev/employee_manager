@@ -10,3 +10,53 @@ $(function(){
 
   $('<div id="modal-window" class="modal modal-sm fade" role="dialog" aria-labelledby="modal-label" aria-hidden="true"></div>').appendTo('body');
 });
+
+function removeRow(element, data){
+  var table_row = element.closest($('tr'));
+  table_row.hide('slow', function(){ table_row.remove(); });
+  var selector_element = $('#applicants_select');
+  if($('#applicants_select option').size() == 0) {
+    selector_element.append("<option value='"+ data.id + "'>" + data.name + "</option>");
+    selector_element.select2('val', $('#applicants_select option:eq(0)').val());
+  } else {
+    selector_element.append("<option value='"+ data.id + "'>" + data.name + "</option>");
+  }
+
+}
+
+function addRow(element, data){
+  $('#candidatesTable')
+    .append($('<tr><td class = "object_id" style="display:none;">' + data.id + '</td><td>' + data.name + '</td><td><a href="#" class="btn btn-danger btn-xs pull-right" onclick="removeApplicant($(this));"><i class="fa fa-minus"></i> Remove</a></td></tr>')
+  );
+  $('#applicants_select option:selected').remove();
+  if($('#applicants_select option').size() > 0) {
+    $('#applicants_select').select2('val', $('#applicants_select option:eq(0)').val());
+  } else {
+  }
+
+}
+
+function removeApplicant(element){
+  var vacancy_id = $('#candidatesTable').data("vacancy");
+  var table_row = element.closest($('tr'));
+  var applicant_id = table_row.find('td.object_id').text().trim();
+  $.ajax({
+    type: 'POST',
+    url: '/admin/vacancies/' + vacancy_id + '/remove_applicant',
+    data: {applicant_id: applicant_id}
+  }).done(function(data) {
+    removeRow(element, data);
+  });
+}
+
+function addApplicant(element){
+  var vacancy_id = $('#candidatesTable').data("vacancy");
+  var applicant_id = $('#applicants_select').val();
+  $.ajax({
+    type: 'POST',
+    url: '/admin/vacancies/' + vacancy_id + '/add_applicant',
+    data: {applicant_id: applicant_id}
+  }).success(function(data) {
+    addRow(element, data);
+  });
+}
