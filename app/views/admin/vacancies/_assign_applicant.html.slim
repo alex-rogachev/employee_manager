@@ -8,6 +8,14 @@
           ' Candidates to vacancy
           ' #{@vacancy.decorate.title}
     .modal-body
+      .row style="margin-bottom: 20px;"
+        .col-lg-12
+          = link_to admin_vacancy_path(@vacancy), class: 'btn btn-sm btn-primary'
+            i.fa.fa-info>
+            | Vacancy info
+          = link_to edit_admin_vacancy_path(@vacancy), class: 'btn btn-sm btn-primary', style: 'margin-left: 5px;'
+            i.fa.fa-edit>
+            | Edit vacancy
       .container
         .row
           .modal_table
@@ -21,6 +29,5 @@
                 = link_to '#', onclick: 'addApplicant($(this));', class: 'btn btn-primary btn-xs pull-right', id: 'new_item'
                   i.fa.fa-plus>
                   | Add
-
     .modal-footer
       = link_to 'Close', '#', data: { type: "button", dismiss: "modal" }, class: 'btn btn-default pull-right'

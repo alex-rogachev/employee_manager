@@ -409,6 +409,11 @@ a.btn-danger:hover {
       border-top: none;
     }
   }
+  table tr:nth-last-child(1) {
+    td {
+      border-bottom: 1px solid #ddd;
+    }
+  }
 }
 
 .columns > .column {

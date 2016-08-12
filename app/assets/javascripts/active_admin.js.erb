@@ -25,15 +25,22 @@ function removeRow(element, data){
 }
 
 function addRow(element, data){
-  $('#candidatesTable')
-    .append($('<tr><td class = "object_id" style="display:none;">' + data.id + '</td><td>' + data.name + '</td><td><a href="#" class="btn btn-danger btn-xs pull-right" onclick="removeApplicant($(this));"><i class="fa fa-minus"></i> Remove</a></td></tr>')
+  $('#candidatesTable').append(
+    $('<tr>' +
+    '<td class = "object_id" style="display:none;">' + data.id +'</td>' +
+    '<td><a href="/admin/applicants/' + data.id + '"' + 'style="text-decoration: none;">' + data.name + '</a></td>' +
+    '<td><a href="#" class="btn btn-danger btn-xs pull-right" onclick="removeApplicant($(this));">' +
+    '<i class="fa fa-minus"></i> Remove</a></td>' +
+    '</tr>'
+    )
   );
+
   $('#applicants_select option:selected').remove();
   if($('#applicants_select option').size() > 0) {
     $('#applicants_select').select2('val', $('#applicants_select option:eq(0)').val());
   } else {
-  }
 
+  }
 }
 
 function removeApplicant(element){
