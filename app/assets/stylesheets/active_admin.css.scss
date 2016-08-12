@@ -65,7 +65,7 @@ $panelHeaderBck: -webkit-linear-gradient(top, #4F83A9 0%, #244A66 100%);;
 @import "active_admin/mixins";
 @import "active_admin/base";
 @import "active_skin";
-//@import "font-awesome";
+@import "font-awesome";
 //= require select2
 
 // Overriding any non-variable SASS must be done after the fact.
