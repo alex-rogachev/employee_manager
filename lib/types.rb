@@ -13,6 +13,7 @@ module Types
     ["C++", 'cpp'],
     ['Java', 'java'],
     ['PHP', 'php'],
+    ['Python', 'python'],
     ['QA', 'qa'],
     ['IOS', 'ios'],
     ['HTML', 'html'],
