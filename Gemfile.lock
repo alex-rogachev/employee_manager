@@ -66,6 +66,9 @@ GEM
       thor
     builder (3.0.4)
     cancan (1.6.10)
+    ckeditor (4.2.3)
+      cocaine
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.5)
@@ -243,6 +246,7 @@ DEPENDENCIES
   aws-sdk (< 2.0)
   bootstrap-sass (= 3.0.2.0)
   cancan
+  ckeditor
   coffee-rails (~> 3.2.1)
   draper
   font-awesome-rails
@@ -263,3 +267,6 @@ DEPENDENCIES
   test-unit
   uglifier (>= 1.0.3)
   virtus
+
+BUNDLED WITH
+   1.14.6
