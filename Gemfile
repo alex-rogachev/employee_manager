@@ -51,7 +51,7 @@ gem 'test-unit'
 gem 'paranoia'
 
 # Text editor
-gem 'ckeditor'
+gem 'ckeditor', '4.1.5'
 
 # Gems used only for assets and not required
 # in production environments by default.
