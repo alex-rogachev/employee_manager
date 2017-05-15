@@ -11,6 +11,7 @@ ActiveAdmin.register EmailTemplate do
 
     def show
       @partial = "/applicant_mailer/#{@email_template.name}"
+      @template_content =  @email_template.content.present? ? @email_template.content.html_safe : ''
       render layout: 'active_admin'
     end
 

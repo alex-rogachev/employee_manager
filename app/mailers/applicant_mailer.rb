@@ -1,7 +1,7 @@
 class ApplicantMailer < ActionMailer::Base
-  def welcome_message applicant, email_template, message_token
+  def welcome_message applicant, template_content, message_token
     @applicant = applicant
-    @email_template = email_template
+    @template_content =  template_content
 
     headers['Message-ID'] = message_token
 
