@@ -1,4 +1,5 @@
 EmployeeManager::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   resources :applicants
   root to: "admin/dashboard#index"
   devise_for :admin_users, ActiveAdmin::Devise.config
