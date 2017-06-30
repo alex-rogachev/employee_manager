@@ -7,6 +7,9 @@ module Types
   ]
 
   AreaOfExpertise = [
+    ['Angular', 'angular'],
+    ['React', 'react'],
+    ['React Native', 'reactnative'],
     ['RoR', 'rails'],
     [".Net", 'dotnet'],
     ["C#", 'csharp'],
@@ -22,7 +25,8 @@ module Types
     ['Unity', 'unity'],
     ['Web Design', 'webdesign'],
     ['Android', 'android'],
-    ['Flash', 'flash']
+    ['Flash', 'flash'],
+    ['Delphi', 'delphi']
   ]
 
   Post = [
