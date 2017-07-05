@@ -26,7 +26,8 @@ module Types
     ['Web Design', 'webdesign'],
     ['Android', 'android'],
     ['Flash', 'flash'],
-    ['Delphi', 'delphi']
+    ['Delphi', 'delphi'],
+    ['Wordpress', 'wp']
   ]
 
   Post = [
