@@ -8,12 +8,14 @@ module Types
 
   AreaOfExpertise = [
     ['Angular', 'angular'],
+    ['Android', 'android'],
     ['React', 'react'],
     ['React Native', 'reactnative'],
     ['RoR', 'rails'],
     [".Net", 'dotnet'],
     ["C#", 'csharp'],
     ["C++", 'cpp'],
+    ['Objective-C', 'cobjective'],
     ['Java', 'java'],
     ['PHP', 'php'],
     ['Python', 'python'],
@@ -24,10 +26,10 @@ module Types
     ['UI/UX Design', 'uiuxdesign'],
     ['Unity', 'unity'],
     ['Web Design', 'webdesign'],
-    ['Android', 'android'],
     ['Flash', 'flash'],
     ['Delphi', 'delphi'],
-    ['Wordpress', 'wp']
+    ['Wordpress', 'wp'],
+    ['Swift', 'swift'],
   ]
 
   Post = [
