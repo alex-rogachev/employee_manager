@@ -21,7 +21,7 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 
 # Exceptions
-gem 'airbrake'
+# gem 'airbrake'
 
 # Assets
 gem 'select2-rails'
