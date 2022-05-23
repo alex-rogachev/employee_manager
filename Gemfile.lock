@@ -44,10 +44,6 @@ GEM
       activerecord (>= 3.2, < 5)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    airbrake (13.0.2)
-      airbrake-ruby (~> 6.0)
-    airbrake-ruby (6.1.0)
-      rbtree3 (~> 0.5)
     arbre (1.5.0)
       activesupport (>= 3.0.0, < 7.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
@@ -194,7 +190,6 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rbtree3 (0.7.0)
     rdoc (3.12.2)
       json (~> 1.4)
     request_store (1.5.1)
@@ -254,7 +249,6 @@ DEPENDENCIES
   active_skin
   activeadmin
   acts-as-taggable-on
-  airbrake
   aws-sdk (< 2.0)
   bootstrap-sass (= 3.0.2.0)
   cancan
