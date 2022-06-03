@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '~> 2.6.6'
 
-gem 'rails', '3.2.13'
+gem 'rails', '5.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -28,15 +28,16 @@ gem 'select2-rails'
 gem 'font-awesome-rails'
 
 # Database
-gem 'pg'
+gem 'pg', '~> 0.21'
+
 
 # ActiveAdmin
-gem 'activeadmin'
+gem 'activeadmin', '1.0.0'
 gem 'active_skin'
 gem 'inherited_resources'
 gem 'cancan'
 gem 'psych'
-
+gem 'devise'
 # Tagging
 gem 'acts-as-taggable-on'
 
@@ -56,9 +57,9 @@ gem 'ckeditor', '4.1.5'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.5'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass', '3.0.2.0'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'bootstrap-sass'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
