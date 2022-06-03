@@ -6,7 +6,7 @@ module ApplicationHelper
     if options[:lookup] or options[:type] or type.is_a?(String)
       begin
         type = options[:type] || type || field.to_s.pluralize.camelize
-        choices = "Types::#{type}".constantize
+        choices = "::Types::#{type}".constantize
       rescue NameError
         choices = []
       end
@@ -49,7 +49,7 @@ module ApplicationHelper
   def format_tags model, field, options = {}
     begin
       type = options[:type] || model.class.type_info_for(field) || field.to_s.camelize
-      choices = "Types::#{type}".constantize
+      choices = "::Types::#{type}".constantize
     rescue NameError
       choices = []
     end
