@@ -59,14 +59,14 @@ ActiveAdmin.register Vacancy do
 
   form decorate: true, html: { multipart: true } do |f|
     f.inputs 'Applicant Details' do
-      f.input :technology, as: :select, collection: Types::AreaOfExpertise
-      f.input :level, as: :select, collection: Types::Levels
+      f.input :technology, as: :select, collection: ::Types::AreaOfExpertise
+      f.input :level, as: :select, collection: ::Types::Levels
       f.input :description, as: :text
     end
     f.actions
   end
 
-  filter :level, as: :select, collection: Types::Levels, multiple: true
-  filter :technology, as: :select, collection: Types::AreaOfExpertise, multiple: true
+  filter :level, as: :select, collection: ::Types::Levels, multiple: true
+  filter :technology, as: :select, collection: ::Types::AreaOfExpertise, multiple: true
   filter :description
 end

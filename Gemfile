@@ -28,7 +28,7 @@ gem 'select2-rails'
 gem 'font-awesome-rails'
 
 # Database
-gem 'pg', '~> 0.21'
+
 
 
 # ActiveAdmin
@@ -69,12 +69,15 @@ end
 
 group :production do
   gem 'rails_12factor', '0.0.2'
+  gem 'pg', '~> 0.21'
 end
 
 group :staging, :development, :test do
   # Mailer preview
   gem 'letter_opener'
   gem 'letter_opener_web', '~> 1.2.0', :group => :development
+  # gem 'sqlite3', '~> 1.4.2'
+  gem 'pg', '~> 0.21'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

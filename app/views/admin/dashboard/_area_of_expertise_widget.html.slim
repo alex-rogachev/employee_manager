@@ -1,12 +1,12 @@
 ul
-  - Types::AreaOfExpertise.each do |aoe|
+  - ::Types::AreaOfExpertise.each do |aoe|
     li
       = link_to controller: 'applicants', action: 'index', 'q' => {area_of_expertise: aoe.last} do
         = aoe.first
         span.badge.pull-right = Applicant.tagged_with(aoe.last).count
       ul
-        - Types::Post.each do |post|
+        - ::Types::Post.each do |post|
           li
             = link_to controller: 'applicants', action: 'index', 'q' => {area_of_expertise: aoe.last, post: post.last} do
-              = Types::Post.rassoc(post.last).try(:first)
+              = ::Types::Post.rassoc(post.last).try(:first)
               span.badge.pull-right = Applicant.tagged_with(aoe.last).where(post: post.last).count

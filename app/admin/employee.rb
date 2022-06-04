@@ -96,14 +96,14 @@ ActiveAdmin.register Employee do
   filter :first_name
   filter :middle_name
   filter :nickname
-  filter :post, as: :select, collection: Types::Post, multiple: true
+  filter :post, as: :select, collection: ::Types::Post, multiple: true
   filter :birth_date
-  filter :gender, as: :select, collection: Types::Gender, multiple: true
+  filter :gender, as: :select, collection: ::Types::Gender, multiple: true
   filter :email
   filter :skype_address
   filter :phone_number
   filter :experience
-  filter :area_of_expertise, as: :select, collection: Types::AreaOfExpertise, multiple: true
+  filter :area_of_expertise, as: :select, collection: ::Types::AreaOfExpertise, multiple: true
   filter :place_of_residence
   filter :notes
 
@@ -113,14 +113,14 @@ ActiveAdmin.register Employee do
       f.input :first_name
       f.input :middle_name
       f.input :nickname
-      f.input :post, as: :select, collection: Types::Post
+      f.input :post, as: :select, collection: ::Types::Post
       f.input :birth_date, as: :date_picker
-      f.input :gender, as: :select, collection: Types::Gender
+      f.input :gender, as: :select, collection: ::Types::Gender
       f.input :email
       f.input :skype_address
       f.input :phone_number
       f.input :experience
-      f.input :area_of_expertise_list, as: :select, collection: Types::AreaOfExpertise, multiple: true
+      f.input :area_of_expertise_list, as: :select, collection: ::Types::AreaOfExpertise, multiple: true
       f.input :place_of_residence
       f.input :notes
       f.input :resume, as: :file, hint: f.object.resume_file_name
