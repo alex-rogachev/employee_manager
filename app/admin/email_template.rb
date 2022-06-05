@@ -1,6 +1,6 @@
 ActiveAdmin.register EmailTemplate do
   menu parent: 'Emails', label: 'Templates'
-  actions :index
+  actions :index, :edit, :update, :show
   batch_action :destroy, false
   config.filters = false
 

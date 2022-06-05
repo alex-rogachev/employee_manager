@@ -2,6 +2,10 @@ ActiveAdmin.register Employee do
   #Temporary disable menu link to the resource
   menu if: proc { false }
 
+  permit_params :first_name, :middle_name, :last_name, :nickname, :birth_date, :gender,
+                   :post, :notes, :email, :phone_number, :experience, :area_of_expertise,
+                   :place_of_residence, :skype_address, :resume
+
   breadcrumb {}
 
   decorate_with ApplicantDecorator

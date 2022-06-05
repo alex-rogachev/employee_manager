@@ -5,6 +5,10 @@ ActiveAdmin.register Applicant do
 
   decorate_with ApplicantDecorator
 
+  permit_params :first_name, :middle_name, :last_name, :nickname, :birth_date, :gender,
+                :post, :notes, :email, :phone_number, :experience, :area_of_expertise,
+                :place_of_residence, :skype_address, :resume
+
   batch_action :destroy, false
   batch_action :send_welcome_message, confirm: 'You want to send welcome message. Click OK to continue.' do |ids|
     result = Applicants::SendInvitation.call(ids: ids, email_template_name: 'invitation')

@@ -7,6 +7,8 @@ ActiveAdmin.register Vacancy do
 
   batch_action :destroy, false
 
+  permit_params :description, :level, :technology
+
   member_action :assign_applicant_dialog, method: :get do
     respond_to do |format|
       format.js do
